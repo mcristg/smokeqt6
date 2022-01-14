@@ -40,7 +40,7 @@
         <signature>^void QMessageLogContext::copy\(const QMessageLogContext&amp;\)$</signature>
         <signature>.*std::chrono::.*QDeadlineTimer::remainingTimeAsDuration\(\) const$</signature>
         <signature>.*QDataStream::operator...*qfloat16.*</signature>
-
+        		
         <!-- Smoke does not have complete rvalue reference support -->
         <signature>^QSignalBlocker\*.*QSignalBlocker::QSignalBlocker\(QSignalBlocker.*\).*</signature>
         <signature>^QSignalBlocker.*&amp;.*QSignalBlocker::operator=\(QSignalBlocker.*&amp;.*\).*</signature>

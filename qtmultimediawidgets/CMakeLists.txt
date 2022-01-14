@@ -11,7 +11,7 @@ IF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 ENDIF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 
 # kde4_add_library(smokeqtmultimediawidgets SHARED ${smokeqtmultimediawidgets_LIB_SRCS})
-add_library(smokeqtmultimediawidgets SHARED ${smokeqtmultimediawidgets_LIB_SRCS})
+add_library(smokeqtmultimediawidgets SHARED ${smokeqtmultimediawidgets_LIB_SRCS} ${DUMMY_FILE})
 
 target_link_libraries(smokeqtmultimediawidgets
     smokeqtcore

@@ -11,13 +11,13 @@ IF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 ENDIF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 
 # kde4_add_library(smokeqtdbus SHARED ${smokeqtdbus_LIB_SRCS})
-add_library(smokeqtdbus SHARED ${smokeqtdbus_LIB_SRCS})
+add_library(smokeqtdbus SHARED ${smokeqtdbus_LIB_SRCS} ${DUMMY_FILE})
 
 target_link_libraries(smokeqtdbus
-    smokeqtcore
-    Qt5::Core
-    Qt5::DBus
-)
+                      smokeqtcore
+                      Qt5::Core
+                      Qt5::DBus
+                      )
 
 set_target_properties(smokeqtdbus
     PROPERTIES

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.20.3)
 project(SMOKEQT5)
 
 function(get_smokegen_args RESULT_NAME moduleName)
@@ -16,7 +16,7 @@ function(get_smokegen_args RESULT_NAME moduleName)
         list(APPEND clangOptions "-std=c++14")
     elseif(${Qt5Core_VERSION} VERSION_GREATER 5.6.99)
         # Qt >=5.7.0 requires c++11
-        list(APPEND clangOptions "-std=c++11")
+        list(APPEND clangOptions "-std=c++17")
     endif()
 
     set(smokegenArgs
@@ -70,7 +70,7 @@ find_package(Qt5
     Qml
     Quick
     QuickWidgets
-    Script
+    #Script
     Sql
     Svg
     Test
@@ -132,6 +132,10 @@ endif()
 
 set(QTDEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/qtdefines)
 
+file(GLOB DUMMY_FILE
+    dummy_file.cpp
+)
+
 add_subdirectory(qtcore)
 macro_optional_add_bindings(Qt5DBus_FOUND "QtDBus" qtdbus)
 macro_optional_add_bindings(Qt5Gui_FOUND "QtGui" qtgui)
@@ -145,10 +149,14 @@ macro_optional_add_bindings(Qt5PrintSupport_FOUND "QtPrintSupport" qtprintsuppor
 macro_optional_add_bindings(Qt5Qml_FOUND "QtQml" qtqml)
 macro_optional_add_bindings(Qt5Quick_FOUND "QtQuick" qtquick)
 macro_optional_add_bindings(Qt5QuickWidgets_FOUND "QtQuickWidgets" qtquickwidgets)
-macro_optional_add_bindings(Qt5Script_FOUND "QtScript" qtscript)
+#
+#macro_optional_add_bindings(Qt5Script_FOUND "QtScript" qtscript)
+#
 macro_optional_add_bindings(Qt5Sql_FOUND "QtSql" qtsql)
 macro_optional_add_bindings(Qt5Svg_FOUND "QtSvg" qtsvg)
-macro_optional_add_bindings(Qt5Test_FOUND "QtTest" qttest)
+#
+#macro_optional_add_bindings(Qt5Test_FOUND "QtTest" qttest)
+#
 macro_optional_add_bindings(Qt5UiTools_FOUND "QtUiTools" qtuitools)
 macro_optional_add_bindings(Qt5WebChannel_FOUND "QtWebChannel" qtwebchannel)
 macro_optional_add_bindings(Qt5WebEngineCore_FOUND "QtWebEngineCore" qtwebenginecore)

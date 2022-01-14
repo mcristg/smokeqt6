@@ -11,14 +11,14 @@ IF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 ENDIF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 
 # kde4_add_library(smokeqtxmlpatterns SHARED ${smokeqtxmlpatterns_LIB_SRCS})
-add_library(smokeqtxmlpatterns SHARED ${smokeqtxmlpatterns_LIB_SRCS})
+add_library(smokeqtxmlpatterns SHARED ${smokeqtxmlpatterns_LIB_SRCS} ${DUMMY_FILE})
 
 target_link_libraries(smokeqtxmlpatterns 
     smokeqtcore 
     smokeqtnetwork
     Qt5::Core
     Qt5::Network
-    Qt5::XmlPatterns
+    Qt5::XmlPatterns  
 )
 
 set_target_properties(smokeqtxmlpatterns

@@ -10,14 +10,14 @@ IF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
     ADD_DEFINITIONS(-DGCC_VISIBILITY)
 ENDIF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 
-add_library(smokeqtqml SHARED ${smokeqtqml_LIB_SRCS})
+add_library(smokeqtqml SHARED ${smokeqtqml_LIB_SRCS} ${DUMMY_FILE})
 
 target_link_libraries(smokeqtqml
     smokeqtcore
     smokeqtnetwork
     Qt5::Core
     Qt5::Network
-    Qt5::Qml
+    Qt5::Qml 
 )
 
 set_target_properties(smokeqtqml

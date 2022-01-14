@@ -11,9 +11,9 @@ IF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 ENDIF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 
 # kde4_add_library(smokeqtcore SHARED ${smokeqtcore_LIB_SRCS})
-add_library(smokeqtcore SHARED ${smokeqtcore_LIB_SRCS})
+add_library(smokeqtcore SHARED ${smokeqtcore_LIB_SRCS} ${DUMMY_FILE})
 
-target_link_libraries(smokeqtcore Qt5::Core ${SMOKE_BASE_LIBRARY} )
+target_link_libraries(smokeqtcore Qt5::Core ${SMOKE_BASE_LIBRARY})
 
 set_target_properties(smokeqtcore
     PROPERTIES
