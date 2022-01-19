@@ -32,6 +32,8 @@
         <signature>^void qt_format_text\(.*\)$</signature>
 
         <signature>.*QSharedPointer.*grabToImage\(.*\).*</signature>
+		
+		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>

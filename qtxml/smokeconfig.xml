@@ -27,6 +27,8 @@
         <signature>.*\(.*Private.*\).*</signature>
 
         <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
+		
+		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>

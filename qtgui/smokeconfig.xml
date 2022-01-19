@@ -38,6 +38,8 @@
         <signature>^QImage&amp;+ QImage::rgbSwapped\(\)$</signature>
 
         <signature>.*HDC.*\* qt_win_display_dc\(\)$</signature>
+		
+		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -275,5 +277,8 @@
         <class>QWheelEvent</class>
         <class>QWindow</class>
         <class>QWindowStateChangeEvent</class>
+		
+		<class>QCborSimpleType</class>		
+		
     </classList>
 </config>

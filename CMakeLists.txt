@@ -132,10 +132,6 @@ endif()
 
 set(QTDEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/qtdefines)
 
-file(GLOB DUMMY_FILE
-    dummy_file.cpp
-)
-
 add_subdirectory(qtcore)
 macro_optional_add_bindings(Qt5DBus_FOUND "QtDBus" qtdbus)
 macro_optional_add_bindings(Qt5Gui_FOUND "QtGui" qtgui)
