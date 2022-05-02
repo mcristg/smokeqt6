@@ -22,9 +22,9 @@ target_link_libraries(smokeqt6svg
 
 set_target_properties(smokeqt6svg
     PROPERTIES
-    VERSION 3.0.0
-    SOVERSION 3
-    CXX_STANDARD 11
+    VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+    SOVERSION ${VERSION_MAJOR}
+    CXX_STANDARD 17
 )
 
 

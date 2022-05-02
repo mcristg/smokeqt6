@@ -19,9 +19,9 @@ target_link_libraries(smokeqt6webchannel
 
 set_target_properties(smokeqt6webchannel
     PROPERTIES
-    VERSION 3.0.0
-    SOVERSION 3
-    CXX_STANDARD 11
+    VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+    SOVERSION ${VERSION_MAJOR}
+    CXX_STANDARD 17
 )
 
 install(TARGETS smokeqt6webchannel LIBRARY DESTINATION ${LIB_INSTALL_DIR}

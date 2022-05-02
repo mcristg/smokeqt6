@@ -20,8 +20,8 @@ target_link_libraries(smokeqt6xml
 
 set_target_properties(smokeqt6xml 
     PROPERTIES
-    VERSION 3.0.0
-    SOVERSION 3
+    VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+    SOVERSION ${VERSION_MAJOR}
     CXX_STANDARD 17
 )
 

@@ -1,0 +1,102 @@
+<config>
+    <moduleName>qt63dinput</moduleName>
+    <parentModules>
+        <module>qt6core</module>
+        <module>qt6gui</module>
+    </parentModules>
+    <parts>1</parts>
+    <scalarTypes>
+        <!-- QString is a class, but represented as a scalar (#) in munged names -->
+        <typeName>QString</typeName>
+    </scalarTypes>
+    <voidpTypes>
+        <!-- both are classes, but they are represented as Smoke::t_voidp -->
+        <typeName>QStringList</typeName>
+        <typeName>QString</typeName>
+    </voidpTypes>
+    <exclude>
+        <!-- Avoid including any functions that start with "q" thar are not
+             part of Qt -->
+        <signature>.*void quick_exit\(int\).*$</signature>
+        <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
+        <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
+
+        <!-- we don't want private stuff in smoke.. -->
+        <signature>.*::d</signature>
+        <signature>.*::d_ptr</signature>
+        <signature>.*::q_ptr</signature>
+        <signature>.*\(.*Private.*\).*</signature>
+
+        <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
+        <signature>^void qt_format_text\(.*\)$</signature>
+
+        <!-- these next four functions are delcaraed as friend functions, but
+             are not exposed externally -->
+        <signature>^bool qt_closestLeaf\(const QGraphicsItem\*, const QGraphicsItem\*\)$</signature>
+        <signature>^bool qt_closestItemFirst\(const QGraphicsItem\*, const QGraphicsItem\*\)$</signature>
+        <signature>^void qt_mac_emit_menuSignals\(QMenu\*, bool\)$</signature>
+        <signature>^void qt_mac_menu_emit_hovered\(QMenu\*, QAction\*\)$</signature>
+
+	<signature>.*operator.*</signature>
+	
+	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+	
+	<signature>.*::sendCommand\(const QString&amp;.*</signature>
+	
+	<!-- call to deleted function 'FunctionName' -->	
+	<signature>.*qHash\(QPointF, unsigned long long\).*</signature>
+	<signature>.*qHash\(QPointF\).*</signature>
+	
+	<signature>.*qt_initial_random_value\(.*</signature>
+	<signature>.*qt_qhostinfo_lookup\(.*</signature>
+	
+	<!-- call to implicitly-deleted copy constructor of 'classname' -->	
+	<signature>.*QKeyEvent\(const QKeyEvent&amp;\)$</signature>
+	<signature>.*QMouseEvent\(const QMouseEvent&amp;\)$</signature>
+	<signature>.*QWheelEvent\(const QWheelEvent&amp;\)$</signature>
+		
+        <!-- Ignore Mac types -->
+        <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
+        <signature>.*qt_mac_is_metal.*</signature>
+        <signature>.*qt_mac_clear_status_text.*</signature>
+   </exclude>
+    <functions>
+        <!-- include functions starting with 'q' -->
+        <name>^q.*</name>
+        <name>.*::q.*</name>
+        <!-- and operators -->
+        <name>.*operator.*</name>
+    </functions>
+    <classList>
+        <!-- Qt 3D Input Module -->			
+        <class>Qt3DInput::QAbstractActionInput</class>
+        <class>Qt3DInput::QAbstractAxisInput</class>
+        <class>Qt3DInput::QAbstractPhysicalDevice</class>
+        <class>Qt3DInput::QAbstractPhysicalDeviceProxy</class>
+        <class>Qt3DInput::QAction</class>
+        <class>Qt3DInput::QActionInput</class>
+        <class>Qt3DInput::QAnalogAxisInput</class>
+        <class>Qt3DInput::QAxis</class>
+        <class>Qt3DInput::QAxisAccumulator</class>
+        <class>Qt3DInput::QAxisSetting</class>
+        <class>Qt3DInput::QButtonAxisInput</class>
+        <class>Qt3DInput::QInputAspect</class>		
+        <class>Qt3DInput::QInputChord</class>
+        <class>Qt3DInput::QInputDeviceIntegration</class>
+        <class>Qt3DInput::QInputSequence</class>
+        <class>Qt3DInput::QInputSettings</class>
+        <class>Qt3DInput::QKeyEvent</class>
+        <class>Qt3DInput::QKeyboardDevice</class>
+        <class>Qt3DInput::QKeyboardHandler</class>
+        <class>Qt3DInput::QLogicalDevice</class>		
+        <class>Qt3DInput::QMouseDevice</class>
+        <class>Qt3DInput::QMouseEvent</class>
+        <class>Qt3DInput::QMouseHandler</class>
+        <class>Qt3DInput::QPhysicalDeviceCreatedChangeBase</class>		
+        <class>Qt3DInput::QWheelEvent</class>
+		
+        <!-- namespaces -->
+		<class>Qt3DInput</class>
+		
+     </classList>
+</config>

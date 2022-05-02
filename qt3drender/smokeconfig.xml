@@ -1,0 +1,195 @@
+<config>
+    <moduleName>qt63drender</moduleName>
+    <parentModules>
+        <module>qt6core</module>
+        <module>qt6gui</module>
+    </parentModules>
+    <parts>1</parts>
+    <scalarTypes>
+        <!-- QString is a class, but represented as a scalar (#) in munged names -->
+        <typeName>QString</typeName>
+    </scalarTypes>
+    <voidpTypes>
+        <!-- both are classes, but they are represented as Smoke::t_voidp -->
+        <typeName>QStringList</typeName>
+        <typeName>QString</typeName>
+    </voidpTypes>
+    <exclude>
+        <!-- Avoid including any functions that start with "q" thar are not
+             part of Qt -->
+        <signature>.*void quick_exit\(int\).*$</signature>
+        <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
+        <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
+
+        <!-- we don't want private stuff in smoke.. -->
+        <signature>.*::d</signature>
+        <signature>.*::d_ptr</signature>
+        <signature>.*::q_ptr</signature>
+        <signature>.*\(.*Private.*\).*</signature>
+
+        <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
+        <signature>^void qt_format_text\(.*\)$</signature>
+
+        <!-- these next four functions are delcaraed as friend functions, but
+             are not exposed externally -->
+        <signature>^bool qt_closestLeaf\(const QGraphicsItem\*, const QGraphicsItem\*\)$</signature>
+        <signature>^bool qt_closestItemFirst\(const QGraphicsItem\*, const QGraphicsItem\*\)$</signature>
+        <signature>^void qt_mac_emit_menuSignals\(QMenu\*, bool\)$</signature>
+        <signature>^void qt_mac_menu_emit_hovered\(QMenu\*, QAction\*\)$</signature>
+
+	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+
+	<signature>.*::sendCommand\(const QString&amp;.*</signature>
+
+        <signature>.*operator.*</signature>
+	
+	<!-- call to deleted function 'Function Name' -->
+        <signature>.*qHash\(QPointF, unsigned long long\).*</signature>
+	<signature>.*qHash\(QPointF\).*</signature>
+	
+	<signature>.*qt_initial_random_value\(.*</signature>
+	<signature>.*qt_qhostinfo_lookup\(.*</signature>		
+	
+	<!-- allocating an object of abstract class type 'classname' -->	
+	<signature>.*QAbstractTextureImage\(Qt3DCore::QNode\*\)$</signature>
+	<signature>.*QBufferDataGenerator\(\).*</signature>
+	<signature>.*QTextureGenerator\(\).*</signature>
+	<signature>.*QTextureImageDataGenerator\(\).*</signature>
+
+        <!-- Ignore Mac types -->
+        <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
+        <signature>.*qt_mac_is_metal.*</signature>
+        <signature>.*qt_mac_clear_status_text.*</signature>
+   </exclude>
+    <functions>
+        <!-- include functions starting with 'q' -->
+        <name>^q.*</name>
+        <name>.*::q.*</name>
+        <!-- and operators -->
+        <name>.*operator.*</name>
+    </functions>
+    <classList>
+        <!-- Qt 3D Render Module -->				
+        <class>Qt3DRender::QAbstractFunctor</class>		
+        <class>Qt3DRender::QAbstractLight</class>
+        <class>Qt3DRender::QAbstractRayCaster</class>
+        <class>Qt3DRender::QAbstractTexture</class>
+        <class>Qt3DRender::QAbstractTextureImage</class>
+        <class>Qt3DRender::QAlphaCoverage</class>
+        <class>Qt3DRender::QAlphaTest</class>
+        <class>Qt3DRender::QAttribute</class>
+        <class>Qt3DRender::QBlendEquation</class>
+        <class>Qt3DRender::QBlendEquationArguments</class>
+        <class>Qt3DRender::QBlitFramebuffer</class>
+        <class>Qt3DRender::QBuffer</class>
+        <class>Qt3DRender::QBufferCapture</class>
+        <class>Qt3DRender::QBufferDataGenerator</class>
+        <class>Qt3DRender::QCamera</class>
+        <class>Qt3DRender::QCameraLens</class>
+        <class>Qt3DRender::QCameraSelector</class>
+        <class>Qt3DRender::QClearBuffers</class>
+        <class>Qt3DRender::QClipPlane</class>
+        <class>Qt3DRender::QColorMask</class>
+        <class>Qt3DRender::QComputeCommand</class>
+        <class>Qt3DRender::QCullFace</class>
+        <class>Qt3DRender::QDepthRange</class>
+        <class>Qt3DRender::QDepthTest</class>
+        <class>Qt3DRender::QDirectionalLight</class>
+        <class>Qt3DRender::QDispatchCompute</class>
+        <class>Qt3DRender::QDithering</class>
+        <class>Qt3DRender::QEffect</class>
+        <class>Qt3DRender::QEnvironmentLight</class>
+        <class>Qt3DRender::QFilterKey</class>
+        <class>Qt3DRender::QFrameGraphNode</class>
+        <class>Qt3DRender::QFrameGraphNodeCreatedChangeBase</class>
+        <class>Qt3DRender::QFrontFace</class>		
+        <class>Qt3DRender::QFrustumCulling</class>
+        <class>Qt3DRender::QGeometry</class>
+        <class>Qt3DRender::QGeometryRenderer</class>
+        <class>Qt3DRender::QGraphicsApiFilter</class>
+        <class>Qt3DRender::QLayer</class>
+        <class>Qt3DRender::QLayerFilter</class>
+        <class>Qt3DRender::QLevelOfDetail</class>
+        <class>Qt3DRender::QLevelOfDetailBoundingSphere</class>		
+        <class>Qt3DRender::QLevelOfDetailSwitch</class>
+        <class>Qt3DRender::QLineWidth</class>
+        <class>Qt3DRender::QMaterial</class>
+        <class>Qt3DRender::QMemoryBarrier</class>		
+        <class>Qt3DRender::QMesh</class>
+        <class>Qt3DRender::QMultiSampleAntiAliasing</class>
+        <class>Qt3DRender::QNoDepthMask</class>
+        <class>Qt3DRender::QNoDraw</class>		
+        <class>Qt3DRender::QNoPicking</class>
+        <class>Qt3DRender::QObjectPicker</class>
+        <class>Qt3DRender::QPaintedTextureImage</class>
+        <class>Qt3DRender::QParameter</class>
+        <class>Qt3DRender::QPickEvent</class>
+        <class>Qt3DRender::QPickLineEvent</class>
+        <class>Qt3DRender::QPickPointEvent</class>
+        <class>Qt3DRender::QPickTriangleEvent</class>
+        <class>Qt3DRender::QPickingSettings</class>
+        <class>Qt3DRender::QPointLight</class>
+        <class>Qt3DRender::QPointSize</class>
+        <class>Qt3DRender::QPolygonOffset</class>
+        <class>Qt3DRender::QProximityFilter</class>
+        <class>Qt3DRender::QRasterMode</class>
+        <class>Qt3DRender::QRayCaster</class>
+        <class>Qt3DRender::QRayCasterHit</class>
+        <class>Qt3DRender::QRenderAspect</class>
+        <class>Qt3DRender::QRenderCapture</class>
+        <class>Qt3DRender::QRenderCaptureReply</class>
+        <class>Qt3DRender::QRenderPass</class>
+        <class>Qt3DRender::QRenderSettings</class>
+        <class>Qt3DRender::QRenderState</class>
+        <class>Qt3DRender::QRenderStateSet</class>
+        <class>Qt3DRender::QRenderSurfaceSelector</class>
+        <class>Qt3DRender::QRenderTarget</class>
+        <class>Qt3DRender::QRenderTargetOutput</class>
+        <class>Qt3DRender::QRenderTargetSelector</class>
+        <class>Qt3DRender::QSceneLoader</class>
+        <class>Qt3DRender::QScissorTest</class>
+        <class>Qt3DRender::QScreenRayCaster</class>
+        <class>Qt3DRender::QSeamlessCubemap</class>
+        <class>Qt3DRender::QSetFence</class>		
+        <class>Qt3DRender::QShaderData</class>
+        <class>Qt3DRender::QShaderImage</class>
+        <class>Qt3DRender::QShaderProgram</class>
+        <class>Qt3DRender::QShaderProgramBuilder</class>
+        <class>Qt3DRender::QSharedGLTexture</class>
+        <class>Qt3DRender::QSortPolicy</class>
+        <class>Qt3DRender::QSpotLight</class>
+        <class>Qt3DRender::QStencilMask</class>		
+        <class>Qt3DRender::QStencilOperation</class>
+        <class>Qt3DRender::QStencilOperationArguments</class>
+        <class>Qt3DRender::QStencilTest</class>
+        <class>Qt3DRender::QStencilTestArguments</class>		
+        <class>Qt3DRender::QSubtreeEnabler</class>
+        <class>Qt3DRender::QTechnique</class>
+        <class>Qt3DRender::QTechniqueFilter</class>
+        <class>Qt3DRender::QTexture1D</class>		
+        <class>Qt3DRender::QTexture1DArray</class>
+        <class>Qt3DRender::QTexture2D</class>
+        <class>Qt3DRender::QTexture2DArray</class>
+        <class>Qt3DRender::QTexture2DMultisample</class>
+        <class>Qt3DRender::QTexture2DMultisampleArray</class>
+        <class>Qt3DRender::QTexture3D</class>
+        <class>Qt3DRender::QTextureBuffer</class>
+        <class>Qt3DRender::QTextureCubeMap</class>
+        <class>Qt3DRender::QTextureCubeMapArray</class>
+        <class>Qt3DRender::QTextureData</class>
+        <class>Qt3DRender::QTextureDataUpdate</class>
+        <class>Qt3DRender::QTextureGenerator</class>
+        <class>Qt3DRender::QTextureImage</class>
+        <class>Qt3DRender::QTextureImageData</class>
+        <class>Qt3DRender::QTextureImageDataGenerator</class>
+        <class>Qt3DRender::QTextureLoader</class>
+        <class>Qt3DRender::QTextureRectangle</class>
+        <class>Qt3DRender::QTextureWrapMode</class>
+        <class>Qt3DRender::QViewport</class>
+        <class>Qt3DRender::QWaitFence</class>
+		
+        <!-- namespaces -->
+	<class>Qt3DRender</class>
+		
+     </classList>
+</config>
