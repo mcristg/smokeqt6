@@ -3,7 +3,7 @@
 
 #include <smoke.h>
 
-// Defined in smokedata.cpp, initialized by init_qtmultimedia_Smoke(), used by all .cpp files
+// Defined in smokedata.cpp, initialized by init_qt6multimedia_Smoke(), used by all .cpp files
 extern "C" SMOKE_EXPORT Smoke* qt6multimedia_Smoke;
 extern "C" SMOKE_EXPORT void init_qt6multimedia_Smoke();
 extern "C" SMOKE_EXPORT void delete_qt6multimedia_Smoke();

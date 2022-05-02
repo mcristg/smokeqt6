@@ -3,9 +3,9 @@
 
 #include <smoke.h>
 
-// Defined in smokedata.cpp, initialized by init_qtsvg_Smoke(), used by all .cpp files
+// Defined in smokedata.cpp, initialized by init_qt63danimation_Smoke(), used by all .cpp files
 extern "C" SMOKE_EXPORT Smoke* qt63danimation_Smoke;
-extern "C" SMOKE_EXPORT void init_qt63ddanimation_Smoke();
+extern "C" SMOKE_EXPORT void init_qt63danimation_Smoke();
 extern "C" SMOKE_EXPORT void delete_qt63danimation_Smoke();
 
 #ifndef QGLOBALSPACE_CLASS
