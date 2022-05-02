@@ -1,9 +1,9 @@
 <config>
-    <moduleName>qtopengl</moduleName>
+    <moduleName>qt6opengl</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
-        <module>qtwidgets</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
+        <module>qt6widgets</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>
@@ -27,7 +27,16 @@
         <signature>.*::d_ptr</signature>
         <signature>.*::q_ptr</signature>
         <signature>.*\(.*Private.*\).*</signature>
+	
+	<signature>.*operator.*</signature>
 
+	<!-- call to deleted function 'FunctionName' -->	
+	<signature>.*qHash\(QPointF, unsigned long long\).*</signature>
+	<signature>.*qHash\(QPointF\).*</signature>		
+	
+	<signature>.*qt_initial_random_value\(.*</signature>
+	<signature>.*qt_qhostinfo_lookup\(.*</signature>				
+		
         <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
         <signature>^void qt_format_text\(.*\)$</signature>
 
@@ -35,8 +44,8 @@
         <signature>^bool qt_closestItemFirst\(const QGraphicsItem\*, const QGraphicsItem\*\)$</signature>
         <signature>^void qt_mac_emit_menuSignals\(QMenu\*, bool\)$</signature>
         <signature>^void qt_mac_menu_emit_hovered\(QMenu\*, QAction\*\)$</signature>
-		
-		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+	
+	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 		
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -51,21 +60,53 @@
         <name>.*operator.*</name>
     </functions>
     <classList>
-        <class>QGLColormap</class>
-        <class>QGLContext</class>
-        <class>QGLBuffer</class>
-        <class>QGLFormat</class>
-        <class>QGLFramebufferObject</class>
-        <class>QGLFramebufferObjectFormat</class>
-        <class>QGLOverlayWidget</class>
-        <class>QGLPixelBuffer</class>
-        <class>QGLScreen</class>
-        <class>QGLScreenSurfaceFunctions</class>
-        <class>QGLShader</class>
-        <class>QGLShaderProgram</class>
-        <class>QGLWidget</class>
+        <class>QAbstractOpenGLFunctions</class>
+        <class>QOpenGLBuffer</class>
+        <class>QOpenGLDebugLogger</class>
+        <class>QOpenGLDebugMessage</class>
+        <class>QOpenGLFramebufferObject</class>
+        <class>QOpenGLFramebufferObjectFormat</class>
+        <class>QOpenGLFunctions_1_0</class>
+        <class>QOpenGLFunctions_1_1</class>
+        <class>QOpenGLFunctions_1_2</class>
+        <class>QOpenGLFunctions_1_3</class>
+        <class>QOpenGLFunctions_1_4</class>
+        <class>QOpenGLFunctions_1_5</class>
+        <class>QOpenGLFunctions_2_0</class>
+        <class>QOpenGLFunctions_2_1</class>
+        <class>QOpenGLFunctions_3_0</class>
+        <class>QOpenGLFunctions_3_1</class>
+        <class>QOpenGLFunctions_3_2_Compatibility</class>
+        <class>QOpenGLFunctions_3_2_Core</class>
+        <class>QOpenGLFunctions_3_3_Compatibility</class>
+        <class>QOpenGLFunctions_3_3_Core</class>
+        <class>QOpenGLFunctions_4_0_Compatibility</class>
+        <class>QOpenGLFunctions_4_0_Core</class>
+        <class>QOpenGLFunctions_4_1_Compatibility</class>
+        <class>QOpenGLFunctions_4_1_Core</class>
+        <class>QOpenGLFunctions_4_2_Compatibility</class>
+        <class>QOpenGLFunctions_4_2_Core</class>
+        <class>QOpenGLFunctions_4_3_Compatibility</class>
+        <class>QOpenGLFunctions_4_3_Core</class>
+        <class>QOpenGLFunctions_4_4_Compatibility</class>
+        <class>QOpenGLFunctions_4_4_Core</class>
+        <class>QOpenGLFunctions_4_5_Compatibility</class>
+        <class>QOpenGLFunctions_4_5_Core</class>
+        <class>QOpenGLFunctions_ES2</class>
+        <class>QOpenGLPaintDevice</class>
+        <class>QOpenGLShader</class>
+        <class>QOpenGLShaderProgram</class>
+        <class>QOpenGLTextureBlitter</class>
+        <class>QOpenGLTimeMonitor</class>
+        <class>QOpenGLTimerQuery</class>
+	<class>QOpenGLVersionFunctionsFactory</class>
+        <class>QOpenGLVersionProfile</class>
+        <class>QOpenGLVertexArrayObject</class>
+        <class>QOpenGLVertexArrayObject::Binder</class>
+        <class>QOpenGLWindow</class>
 
-        <!-- namespaces -->
-        <class>QGL</class>
+        <!-- A separate Qt OpenGL Widgets library provides a C++ widget 
+             class for rendering OpenGL graphics into widgets UIs. -->
+        <class>QOpenGLWidget</class>
     </classList>
 </config>

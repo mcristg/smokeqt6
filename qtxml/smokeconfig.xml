@@ -1,7 +1,7 @@
 <config>
-    <moduleName>qtxml</moduleName>
+    <moduleName>qt6xml</moduleName>
     <parentModules>
-        <module>qtcore</module>
+        <module>qt6core</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>
@@ -25,10 +25,19 @@
         <signature>.*::d_ptr</signature>
         <signature>.*::q_ptr</signature>
         <signature>.*\(.*Private.*\).*</signature>
+	
+	<signature>.*operator.*</signature>
 
+	<!-- call to deleted function 'FunctionName' -->	
+	<signature>.*qHash\(QPointF, unsigned long long\).*</signature>
+	<signature>.*qHash\(QPointF\).*</signature>		
+	
+	<signature>.*qt_initial_random_value\(.*</signature>
+	<signature>.*qt_qhostinfo_lookup\(.*</signature>		
+		
         <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
 		
-		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -57,21 +66,6 @@
         <class>QDomNodeList</class>
         <class>QDomNotation</class>
         <class>QDomProcessingInstruction</class>
-        <class>QDomText</class>        
-        <class>QXmlAttributes</class>
-        <class>QXmlContentHandler</class>
-        <class>QXmlDTDHandler</class>
-        <class>QXmlDeclHandler</class>
-        <class>QXmlDefaultHandler</class>
-        <class>QXmlEntityResolver</class>
-        <class>QXmlErrorHandler</class>
-        <class>QXmlInputSource</class>
-        <class>QXmlLexicalHandler</class>
-        <class>QXmlLocator</class>
-        <class>QXmlNamespaceSupport</class>
-        <class>QXmlParseException</class>
-        <class>QXmlReader</class>
-        <class>QXmlSimpleReader</class>
-        <class>QXmlStreamWriter</class>
+        <class>QDomText</class>
     </classList>
 </config>

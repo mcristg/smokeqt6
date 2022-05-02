@@ -1,11 +1,11 @@
 <config>
-    <moduleName>qtquickwidgets</moduleName>
+    <moduleName>qt6quickwidgets</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
-        <module>qtwidgets</module>
-        <module>qtquick</module>
-        <module>qtqml</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
+        <module>qt6widgets</module>
+        <module>qt6quick</module>
+        <module>qt6qml</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>

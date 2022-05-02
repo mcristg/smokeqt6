@@ -1,7 +1,7 @@
 <config>
-    <moduleName>qtpositioning</moduleName>
+    <moduleName>qt6positioning</moduleName>
     <parentModules>
-        <module>qtcore</module>
+        <module>qt6core</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>
@@ -24,6 +24,7 @@
         <class>QGeoCoordinate</class>
         <class>QGeoLocation</class>
         <class>QGeoPath</class>
+	<class>QGeoPolygon</class>
         <class>QGeoPositionInfo</class>
         <class>QGeoPositionInfoSource</class>
         <class>QGeoPositionInfoSourceFactory</class>
@@ -32,5 +33,6 @@
         <class>QGeoSatelliteInfoSource</class>
         <class>QGeoShape</class>
         <class>QNmeaPositionInfoSource</class>
+	<class>QNmeaSatelliteInfoSource</class>
     </classList>
 </config>

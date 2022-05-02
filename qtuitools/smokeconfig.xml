@@ -1,9 +1,9 @@
 <config>
-    <moduleName>qtuitools</moduleName>
+    <moduleName>qt6uitools</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
-        <module>qtwidgets</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
+        <module>qt6widgets</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>

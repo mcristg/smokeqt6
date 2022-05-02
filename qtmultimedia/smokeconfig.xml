@@ -1,8 +1,8 @@
 <config>
-    <moduleName>qtmultimedia</moduleName>
+    <moduleName>qt6multimedia</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
     </parentModules>
     <parts>10</parts>
     <scalarTypes>
@@ -26,11 +26,20 @@
         <signature>.*::d_ptr</signature>
         <signature>.*::q_ptr</signature>
         <signature>.*\(.*Private.*\).*</signature>
+	
+	<signature>.*operator.*</signature>
 
+	<!-- call to deleted function 'FunctionName' -->	
+	<signature>.*qHash\(QPointF, unsigned long long\).*</signature>
+	<signature>.*qHash\(QPointF\).*</signature>		
+	
+	<signature>.*qt_initial_random_value\(.*</signature>
+	<signature>.*qt_qhostinfo_lookup\(.*</signature>		
+		
         <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
         <signature>^void qt_format_text\(.*\)$</signature>
-		
-		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+	
+	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -43,101 +52,35 @@
         <name>.*operator.*</name>
     </functions>
     <classList>
-        <class>QAbstractAudioDeviceInfo</class>
-        <class>QAbstractAudioInput</class>
-        <class>QAbstractAudioOutput</class>
-        <class>QAbstractPlanarVideoBuffer</class>
-        <class>QAbstractVideoBuffer</class>
-        <class>QAbstractVideoFilter</class>
-        <class>QAbstractVideoSurface</class>
         <class>QAudioBuffer</class>
-        <class>QAudioBuffer::StereoFrame</class>
         <class>QAudioDecoder</class>
-        <class>QAudioDecoderControl</class>
-        <class>QAudioDeviceInfo</class>
-        <class>QAudioEncoderSettings</class>
-        <class>QAudioEncoderSettingsControl</class>
+        <class>QAudioDevice</class>
         <class>QAudioFormat</class>
         <class>QAudioInput</class>
-        <class>QAudioInputSelectorControl</class>
         <class>QAudioOutput</class>
-        <class>QAudioOutputSelectorControl</class>
-        <class>QAudioProbe</class>
-        <class>QAudioRecorder</class>
-        <class>QAudioRoleControl</class>
-        <class>QAudioSystemPlugin</class>
+        <class>QAudioSink</class>
+        <class>QAudioSource</class>
         <class>QCamera</class>
-        <class>QCamera::FrameRateRange</class>
-        <class>QCameraCaptureBufferFormatControl</class>
-        <class>QCameraCaptureDestinationControl</class>
-        <class>QCameraControl</class>
-        <class>QCameraExposure</class>
-        <class>QCameraExposureControl</class>
-        <class>QCameraFeedbackControl</class>
-        <class>QCameraFlashControl</class>
-        <class>QCameraFocus</class>
-        <class>QCameraFocusControl</class>
-        <class>QCameraFocusZone</class>
-        <class>QCameraImageCapture</class>
-        <class>QCameraImageCaptureControl</class>
-        <class>QCameraImageProcessing</class>
-        <class>QCameraImageProcessingControl</class>
-        <class>QCameraInfo</class>
-        <class>QCameraInfoControl</class>
-        <class>QCameraLocksControl</class>
-        <class>QCameraViewfinderSettings</class>
-        <class>QCameraViewfinderSettingsControl</class>
-        <class>QCameraViewfinderSettingsControl2</class>
-        <class>QCameraZoomControl</class>
-        <class>QImageEncoderControl</class>
-        <class>QImageEncoderSettings</class>
-        <class>QMediaAudioProbeControl</class>
-        <class>QMediaAvailabilityControl</class>
-        <class>QMediaBindableInterface</class>
-        <class>QMediaContainerControl</class>
-        <class>QMediaContent</class>
-        <class>QMediaControl</class>
-        <class>QMediaGaplessPlaybackControl</class>
-        <class>QMediaNetworkAccessControl</class>
-        <class>QMediaObject</class>
+        <class>QCameraDevice</class>
+        <class>QCameraFormat</class>
+        <class>QImageCapture</class>
+        <class>QMediaCaptureSession</class>
+        <class>QMediaDevices</class>
+        <class>QMediaFormat</class>
+        <class>QMediaMetaData</class>
         <class>QMediaPlayer</class>
-        <class>QMediaPlayerControl</class>
-        <class>QMediaPlaylist</class>
         <class>QMediaRecorder</class>
-        <class>QMediaRecorderControl</class>
-        <class>QMediaResource</class>
-        <class>QMediaService</class>
-        <class>QMediaServiceCameraInfoInterface</class>
-        <class>QMediaServiceDefaultDeviceInterface</class>
-        <class>QMediaServiceFeaturesInterface</class>
-        <class>QMediaServiceProviderPlugin</class>
-        <class>QMediaServiceSupportedDevicesInterface</class>
-        <class>QMediaServiceSupportedFormatsInterface</class>
-        <class>QMediaStreamsControl</class>
-        <class>QMediaTimeInterval</class>
         <class>QMediaTimeRange</class>
-        <class>QMediaVideoProbeControl</class>
-        <class>QMetaDataReaderControl</class>
-        <class>QMetaDataWriterControl</class>
-        <class>QRadioData</class>
-        <class>QRadioDataControl</class>
-        <class>QRadioTuner</class>
-        <class>QRadioTunerControl</class>
-        <class>QSound</class>
+        <class>QMediaTimeRange::Interval</class>
+        <class>QPlatformAudioDecoder</class>
+        <class>QPlatformAudioSink</class>
+        <class>QPlatformAudioSource</class>
         <class>QSoundEffect</class>
-        <class>QVideoDeviceSelectorControl</class>
-        <class>QVideoEncoderSettings</class>
-        <class>QVideoEncoderSettingsControl</class>
-        <class>QVideoFilterRunnable</class>
         <class>QVideoFrame</class>
-        <class>QVideoProbe</class>
-        <class>QVideoRendererControl</class>
-        <class>QVideoSurfaceFormat</class>
-        <class>QVideoWindowControl</class>
+	<class>QVideoFrameFormat</class>
+        <class>QVideoSink</class>
 
         <!-- namespaces -->
         <class>QAudio</class>
-        <class>QMediaMetaData</class>
-        <class>QMultimedia</class>
      </classList>
 </config>

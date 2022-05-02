@@ -1,9 +1,9 @@
 <config>
-    <moduleName>qtprintsupport</moduleName>
+    <moduleName>qt6printsupport</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
-        <module>qtwidgets</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
+        <module>qt6widgets</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>
@@ -17,12 +17,13 @@
     </voidpTypes>
     <classList>
         <class>QAbstractPrintDialog</class>
+	<class>QPageRanges</class>
         <class>QPageSetupDialog</class>
         <class>QPrintDialog</class>
+	<class>QPrintEngine</class>
         <class>QPrintPreviewDialog</class>
-        <class>QPrintEngine</class>
+        <class>QPrintPreviewWidget</class>
         <class>QPrinter</class>
         <class>QPrinterInfo</class>
-        <class>QPrintPreviewWidget</class>
     </classList>
 </config>

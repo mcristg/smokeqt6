@@ -1,8 +1,8 @@
 <config>
-    <moduleName>qtwebchannel</moduleName>
+    <moduleName>qt6webchannel</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtqml</module>
+        <module>qt6core</module>
+        <module>qt6qml</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>

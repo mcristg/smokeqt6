@@ -1,11 +1,11 @@
 <config>
-    <moduleName>qtwebenginewidgets</moduleName>
+    <moduleName>qt6webenginewidgets</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
-        <module>qtquick</module>
-        <module>qtnetwork</module>
-        <module>qtwebenginecore</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
+        <module>qt6quick</module>
+        <module>qt6network</module>
+        <module>qt6webenginecore</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>
@@ -18,20 +18,9 @@
         <typeName>QString</typeName>
     </voidpTypes>
     <exclude>
-        <signature>.*QWebEngineCallback.*</signature>
-    </exclude>
+        <!-- <signature>.*QWebEngineCallback.*</signature> -->
+   </exclude>
     <classList>
-        <class>QWebEngineCertificateError</class>
-        <class>QWebEngineContextMenuData</class>
-        <class>QWebEngineDownloadItem</class>
-        <class>QWebEngineFullScreenRequest</class>
-        <class>QWebEngineHistory</class>
-        <class>QWebEngineHistoryItem</class>
-        <class>QWebEnginePage</class>
-        <class>QWebEngineProfile</class>
-        <class>QWebEngineScript</class>
-        <class>QWebEngineScriptCollection</class>
-        <class>QWebEngineSettings</class>
         <class>QWebEngineView</class>
     </classList>
 </config>

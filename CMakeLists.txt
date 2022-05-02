@@ -1,5 +1,9 @@
-cmake_minimum_required(VERSION 3.20.3)
-project(SMOKEQT5)
+cmake_minimum_required(VERSION 3.18.4)
+project(SMOKEQT6)
+
+set(VERSION_MAJOR 6)
+set(VERSION_MINOR 2)
+set(VERSION_PATCH 4)
 
 function(get_smokegen_args RESULT_NAME moduleName)
     set(clangOptions "-clangOptions")
@@ -13,11 +17,11 @@ function(get_smokegen_args RESULT_NAME moduleName)
         # only the c++11 subset that clang would turn on with -std=c++11.  When
         # running inside smokegen, Qt's compiler detection sees the compiler as
         # clang under msvc.
-        list(APPEND clangOptions "-std=c++14")
-    elseif(${Qt5Core_VERSION} VERSION_GREATER 5.6.99)
+        list(APPEND clangOptions "-std=c++17")
+    elseif(${Qt6Core_VERSION} VERSION_GREATER 6.2.4)
         # Qt >=5.7.0 requires c++11
         list(APPEND clangOptions "-std=c++17")
-    endif()
+   endif()
 
     set(smokegenArgs
         -config "${CMAKE_CURRENT_BINARY_DIR}/config.xml"
@@ -55,8 +59,14 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
 endif()
 
-find_package(Qt5 COMPONENTS Core REQUIRED)
-find_package(Qt5
+if (Qt6_DIR)
+   string(REPLACE "/lib/cmake/Qt6" "" Qt_ROOT_DIR ${Qt6_DIR})
+endif()   
+
+find_package(Vulkan REQUIRED)
+find_package(Qt6 COMPONENTS Core REQUIRED)
+
+find_package(Qt6
     COMPONENTS
     DBus
     Gui
@@ -70,19 +80,25 @@ find_package(Qt5
     Qml
     Quick
     QuickWidgets
-    #Script
+    scxml
     Sql
     Svg
-    Test
+    #Test
     UiTools
     WebChannel
     WebEngineCore
     WebEngineWidgets
     Widgets
+    3DAnimation
+    3DCore
+    3DExtras
+    3DInput
+    3DLogic
+    3DRender
     Xml
-    XmlPatterns
     QUIET
 )
+
 find_package(Smoke)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
@@ -118,14 +134,8 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 endif()
 
-#macro_optional_find_package(QImageBlitz)
-#macro_log_feature(QIMAGEBLITZ_FOUND "QImageBlitz" "QImageBlitz library" "http://www.kde.org" FALSE "" "Needed to compile QImageBlitz bindings")
-#
 #macro_optional_find_package(Qwt5)
 #macro_log_feature(Qwt5_Qt4_FOUND "Qwt5 for Qt4" "Qwt5 libraries for Qt4" "http://qwt.sourceforge.net" FALSE "" "Needed to compile Qwt5 bindings")
-#
-#macro_optional_find_package(Phonon)
-#macro_log_feature(PHONON_FOUND "Phonon" "Phonon multimedia framework" "http://www.kde.org" FALSE "" "Needed to compile Phonon bindings")
 #
 #macro_optional_find_package(QScintilla)
 #macro_log_feature(QSCINTILLA_FOUND "QScintilla2" "QScintilla2 libraries" "http://www.riverbankcomputing.co.uk/software/qscintilla/intro" FALSE "" "Needed to compile QScintilla2 bindings")
@@ -133,41 +143,41 @@ endif()
 set(QTDEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/qtdefines)
 
 add_subdirectory(qtcore)
-macro_optional_add_bindings(Qt5DBus_FOUND "QtDBus" qtdbus)
-macro_optional_add_bindings(Qt5Gui_FOUND "QtGui" qtgui)
-macro_optional_add_bindings(Qt5Help_FOUND "QtHelp" qthelp)
-macro_optional_add_bindings(Qt5Multimedia_FOUND "QtMultimedia" qtmultimedia)
-macro_optional_add_bindings(Qt5MultimediaWidgets_FOUND "QtMultimediaWidgets" qtmultimediawidgets)
-macro_optional_add_bindings(Qt5Network_FOUND "QtNetwork" qtnetwork)
-macro_optional_add_bindings(Qt5OpenGL_FOUND "QtOpenGL" qtopengl)
-macro_optional_add_bindings(Qt5Positioning_FOUND "QtPositioning" qtpositioning)
-macro_optional_add_bindings(Qt5PrintSupport_FOUND "QtPrintSupport" qtprintsupport)
-macro_optional_add_bindings(Qt5Qml_FOUND "QtQml" qtqml)
-macro_optional_add_bindings(Qt5Quick_FOUND "QtQuick" qtquick)
-macro_optional_add_bindings(Qt5QuickWidgets_FOUND "QtQuickWidgets" qtquickwidgets)
-#
-#macro_optional_add_bindings(Qt5Script_FOUND "QtScript" qtscript)
-#
-macro_optional_add_bindings(Qt5Sql_FOUND "QtSql" qtsql)
-macro_optional_add_bindings(Qt5Svg_FOUND "QtSvg" qtsvg)
+macro_optional_add_bindings(Qt6DBus_FOUND "QtDBus" qtdbus)
+macro_optional_add_bindings(Qt6Gui_FOUND "QtGui" qtgui)
+macro_optional_add_bindings(Qt6Help_FOUND "QtHelp" qthelp)
+macro_optional_add_bindings(Qt6Multimedia_FOUND "QtMultimedia" qtmultimedia)
+macro_optional_add_bindings(Qt6MultimediaWidgets_FOUND "QtMultimediaWidgets" qtmultimediawidgets)
+macro_optional_add_bindings(Qt6Network_FOUND "QtNetwork" qtnetwork)
+macro_optional_add_bindings(Qt6OpenGL_FOUND "QtOpenGL" qtopengl)
+macro_optional_add_bindings(Qt6Positioning_FOUND "QtPositioning" qtpositioning)
+macro_optional_add_bindings(Qt6PrintSupport_FOUND "QtPrintSupport" qtprintsupport)
+macro_optional_add_bindings(Qt6Qml_FOUND "QtQml" qtqml)
+macro_optional_add_bindings(Qt6Quick_FOUND "QtQuick" qtquick)
+macro_optional_add_bindings(Qt6QuickWidgets_FOUND "QtQuickWidgets" qtquickwidgets)
+macro_optional_add_bindings(Qt6Scxml_FOUND "QtScxml" qtscxml)
+macro_optional_add_bindings(Qt6Sql_FOUND "QtSql" qtsql)
+macro_optional_add_bindings(Qt6Svg_FOUND "QtSvg" qtsvg)
 #
 #macro_optional_add_bindings(Qt5Test_FOUND "QtTest" qttest)
 #
-macro_optional_add_bindings(Qt5UiTools_FOUND "QtUiTools" qtuitools)
-macro_optional_add_bindings(Qt5WebChannel_FOUND "QtWebChannel" qtwebchannel)
-macro_optional_add_bindings(Qt5WebEngineCore_FOUND "QtWebEngineCore" qtwebenginecore)
-macro_optional_add_bindings(Qt5WebEngineWidgets_FOUND "QtWebEngineWidgets" qtwebenginewidgets)
-macro_optional_add_bindings(Qt5Widgets_FOUND "QtWidgets" qtwidgets)
-macro_optional_add_bindings(Qt5Xml_FOUND "QtXml" qtxml)
-macro_optional_add_bindings(Qt5XmlPatterns_FOUND "QtXmlPatterns" qtxmlpatterns)
+macro_optional_add_bindings(Qt6UiTools_FOUND "QtUiTools" qtuitools)
+macro_optional_add_bindings(Qt6WebChannel_FOUND "QtWebChannel" qtwebchannel)
+macro_optional_add_bindings(Qt6WebEngineCore_FOUND "QtWebEngineCore" qtwebenginecore)
+macro_optional_add_bindings(Qt6WebEngineWidgets_FOUND "QtWebEngineWidgets" qtwebenginewidgets)
+macro_optional_add_bindings(Qt6Widgets_FOUND "QtWidgets" qtwidgets)
+macro_optional_add_bindings(Qt6Xml_FOUND "QtXml" qtxml)
 #
-#macro_optional_add_bindings(PHONON_FOUND "Phonon" phonon)
+macro_optional_add_bindings(Qt63DCore_FOUND "Qt3DCore" qt3dcore)
+macro_optional_add_bindings(Qt63DExtras_FOUND "Qt3DExtras" qt3dextras)
+macro_optional_add_bindings(Qt63DInput_FOUND "Qt3DInput" qt3dinput)
+macro_optional_add_bindings(Qt63DLogic_FOUND "Qt3DLogic" qt3dlogic)
+macro_optional_add_bindings(Qt63DRender_FOUND "Qt3DRender" qt3drender)
+macro_optional_add_bindings(Qt63DAnimation_FOUND "Qt3DAnimation" qt3danimation)
 #
 #macro_optional_add_bindings(QSCINTILLA_FOUND "QScintilla" qsci)
 #
 #macro_optional_add_bindings(Qwt5_Qt4_FOUND "Qwt" qwt)
-#
-#macro_optional_add_bindings(QIMAGEBLITZ_FOUND "QImageBlitz" qimageblitz)
 
 
 

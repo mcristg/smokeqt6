@@ -1,8 +1,8 @@
 <config>
-    <moduleName>qtwidgets</moduleName>
+    <moduleName>qt6widgets</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
     </parentModules>
     <parts>20</parts>
     <scalarTypes>
@@ -25,20 +25,30 @@
         <signature>.*::d_ptr</signature>
         <signature>.*::q_ptr</signature>
         <signature>.*\(.*Private.*\).*</signature>
+
+	<!-- is a protected member -->
+	<signature>.*(QStringTokenizerBaseBase::tokenizer_state*).*</signature>	
+	<signature>.*QRandomGenerator::InitialRandomData.*</signature>		
+
+	<!-- call to deleted function -->
+	<signature>.*operator+.*\(.*,.*.*</signature>
+        <signature>.*operator-.*\(.*,.*.*</signature>
+        <signature>.*qHash.*\(.*,.*.*</signature>		
+
         <signature>^QGraphicsLayoutItem\* QGraphicsLayoutItem::QGraphicsLayoutItem\(const QGraphicsLayoutItem&amp;\)$</signature>
-        <signature>^QScopedPointer.*QScrollerProperties::d$</signature>
+        <signature>^(::)?QScopedPointer.*QScrollerProperties.*d(=)?$</signature>
 
         <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
         <signature>^void qt_format_text\(.*\)$</signature>
+	
+        <signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- these next four functions are delcaraed as friend functions, but
              are not exposed externally -->
-        <signature>^bool qt_closestLeaf\(const QGraphicsItem\*, const QGraphicsItem\*\)$</signature>
-        <signature>^bool qt_closestItemFirst\(const QGraphicsItem\*, const QGraphicsItem\*\)$</signature>
+        <signature>^bool qt_closestLeaf\(const (::)?QGraphicsItem\*, const (::)?QGraphicsItem\*\)$</signature>
+        <signature>^bool qt_closestItemFirst\(const QGraphicsItem\*, const (::)?QGraphicsItem\*\)$</signature>
         <signature>^void qt_mac_emit_menuSignals\(QMenu\*, bool\)$</signature>
         <signature>^void qt_mac_menu_emit_hovered\(QMenu\*, QAction\*\)$</signature>
-		
-		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -61,8 +71,6 @@
         <class>QAbstractSlider</class>
         <class>QAbstractSpinBox</class>
         <class>QAccessibleWidget</class>
-        <class>QAction</class>
-        <class>QActionGroup</class>
         <class>QApplication</class>
         <class>QBoxLayout</class>
         <class>QButtonGroup</class>
@@ -78,7 +86,6 @@
         <class>QDataWidgetMapper</class>
         <class>QDateEdit</class>
         <class>QDateTimeEdit</class>
-        <class>QDesktopWidget</class>
         <class>QDial</class>
         <class>QDialog</class>
         <class>QDialogButtonBox</class>
@@ -87,7 +94,6 @@
         <class>QErrorMessage</class>
         <class>QFileDialog</class>
         <class>QFileIconProvider</class>
-        <class>QFileSystemModel</class>
         <class>QFocusFrame</class>
         <class>QFontComboBox</class>
         <class>QFontDialog</class>
@@ -144,7 +150,6 @@
         <class>QItemEditorCreator</class>
         <class>QItemEditorCreatorBase</class>
         <class>QItemEditorFactory</class>
-        <class>QKeyEventTransition</class>
         <class>QKeySequenceEdit</class>
         <class>QLCDNumber</class>
         <class>QLabel</class>
@@ -154,16 +159,12 @@
         <class>QListView</class>
         <class>QListWidget</class>
         <class>QListWidgetItem</class>
-        <class>QMacCocoaViewContainer</class>
-        <class>QMacNativeWidget</class>
         <class>QMainWindow</class>
         <class>QMdiArea</class>
         <class>QMdiSubWindow</class>
         <class>QMenu</class>
         <class>QMenuBar</class>
         <class>QMessageBox</class>
-        <class>QMouseEventTransition</class>
-        <class>QOpenGLWidget</class>
         <class>QPanGesture</class>
         <class>QPinchGesture</class>
         <class>QPlainTextDocumentLayout</class>
@@ -178,7 +179,6 @@
         <class>QScrollBar</class>
         <class>QScroller</class>
         <class>QScrollerProperties</class>
-        <class>QShortcut</class>
         <class>QSizeGrip</class>
         <class>QSizePolicy</class>
         <class>QSlider</class>
@@ -206,6 +206,7 @@
         <class>QStyleOptionGraphicsItem</class>
         <class>QStyleOptionGroupBox</class>
         <class>QStyleOptionHeader</class>
+	<class>QStyleOptionHeaderV2</class>
         <class>QStyleOptionMenuItem</class>
         <class>QStyleOptionProgressBar</class>
         <class>QStyleOptionRubberBand</class>
@@ -246,9 +247,6 @@
         <class>QTreeWidget</class>
         <class>QTreeWidgetItem</class>
         <class>QTreeWidgetItemIterator</class>
-        <class>QUndoCommand</class>
-        <class>QUndoGroup</class>
-        <class>QUndoStack</class>
         <class>QUndoView</class>
         <class>QVBoxLayout</class>
         <class>QWhatsThis</class>
@@ -257,6 +255,7 @@
         <class>QWidgetItem</class>
         <class>QWizard</class>
         <class>QWizardPage</class>
+		
     </classList>
 </config>
 

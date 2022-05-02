@@ -1,7 +1,7 @@
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-create_configure_files("${Qt5Core_INCLUDE_DIRS};${Qt5Network_INCLUDE_DIRS}")
+create_configure_files("${Qt6Core_INCLUDE_DIRS};${Qt6Network_INCLUDE_DIRS}")
 get_smokegen_args(smokegenArgs qtnetwork)
 run_smokegen(1 "${smokegenArgs}")
 get_smokegen_output_files(smokeqtnetwork_LIB_SRCS 1)
@@ -10,23 +10,22 @@ IF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
     ADD_DEFINITIONS(-DGCC_VISIBILITY)
 ENDIF(CMAKE_CXX_FLAGS MATCHES "-fvisibility")
 
-# kde4_add_library(smokeqtnetwork SHARED ${smokeqtnetwork_LIB_SRCS})
-add_library(smokeqtnetwork SHARED ${smokeqtnetwork_LIB_SRCS})
+add_library(smokeqt6network SHARED ${smokeqtnetwork_LIB_SRCS})
 
-target_link_libraries(smokeqtnetwork
-    smokeqtcore
-    Qt5::Core
-    Qt5::Network
+target_link_libraries(smokeqt6network
+    smokeqt6core
+    Qt6::Core
+    Qt6::Network
 )
 
-set_target_properties(smokeqtnetwork
+set_target_properties(smokeqt6network
     PROPERTIES
     VERSION 3.0.0
     SOVERSION 3
     CXX_STANDARD 11
 )
 
-install(TARGETS smokeqtnetwork
+install(TARGETS smokeqt6network
     LIBRARY DESTINATION ${LIB_INSTALL_DIR}
     ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
     RUNTIME DESTINATION bin)
@@ -34,14 +33,14 @@ install(TARGETS smokeqtnetwork
 if (WIN32)
 	# Realign the stack, for compatibility with an older ABI.
 	if(CMAKE_COMPILER_IS_GNUCXX)
-		set_target_properties(smokeqtnetwork PROPERTIES COMPILE_FLAGS -mstackrealign)
+		set_target_properties(smokeqt6network PROPERTIES COMPILE_FLAGS -mstackrealign)
 	endif()
 
     # Get rid of the "lib" prefix on archives/DLLs in Windows.
-    set_target_properties(smokeqtnetwork
+    set_target_properties(smokeqt6network
         PROPERTIES PREFIX "" IMPORT_PREFIX "")
 endif (WIN32)
 
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../qtnetwork_smoke.h DESTINATION include/smoke)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qtnetwork.argnames.txt DESTINATION share/smoke)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qtnetwork.typedefs.txt DESTINATION share/smoke)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../qt6network_smoke.h DESTINATION include/smoke)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qt6network.argnames.txt DESTINATION share/smoke)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/qt6network.typedefs.txt DESTINATION share/smoke)

@@ -1,12 +1,12 @@
 <config>
-    <moduleName>qtmultimediawidgets</moduleName>
+    <moduleName>qt6multimediawidgets</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
-        <module>qtwidgets</module>
-        <module>qtnetwork</module>
-        <module>qtmultimedia</module>
-        <module>qtopengl</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
+        <module>qt6widgets</module>
+        <module>qt6network</module>
+        <module>qt6multimedia</module>
+        <module>qt6opengl</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>
@@ -29,6 +29,16 @@
         <signature>.*::d_ptr</signature>
         <signature>.*::q_ptr</signature>
         <signature>.*\(.*Private.*\).*</signature>
+	
+	<signature>.*operator.*</signature>
+
+	<!-- call to deleted function 'Function Name' -->	
+	<signature>.*qHash\(QPointF, unsigned long long\).*</signature>
+	<signature>.*qHash\(QPointF\).*</signature>		
+	
+	<signature>.*qt_initial_random_value\(.*</signature>
+	<signature>.*qt_qhostinfo_lookup\(.*</signature>		
+		
         <signature>^QGraphicsLayoutItem\* QGraphicsLayoutItem::QGraphicsLayoutItem\(const QGraphicsLayoutItem&amp;\)$</signature>
         <signature>^QScopedPointer.*QScrollerProperties::d$</signature>
 
@@ -41,8 +51,8 @@
         <signature>^bool qt_closestItemFirst\(const QGraphicsItem\*, const QGraphicsItem\*\)$</signature>
         <signature>^void qt_mac_emit_menuSignals\(QMenu\*, bool\)$</signature>
         <signature>^void qt_mac_menu_emit_hovered\(QMenu\*, QAction\*\)$</signature>
-		
-		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+	
+	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -57,10 +67,8 @@
         <name>.*operator.*</name>
     </functions>
     <classList>
-        <class>QCameraViewfinder</class>
         <class>QGraphicsVideoItem</class>
         <class>QVideoWidget</class>
-        <class>QVideoWidgetControl</class>
     </classList>
 </config>
 

@@ -1,8 +1,8 @@
 <config>
-    <moduleName>qtsql</moduleName>
+    <moduleName>qt6sql</moduleName>
     <parentModules>
-        <module>qtcore</module>
-        <module>qtgui</module>
+        <module>qt6core</module>
+        <module>qt6gui</module>
     </parentModules>
     <parts>1</parts>
     <scalarTypes>
@@ -26,11 +26,22 @@
         <signature>.*::d_ptr</signature>
         <signature>.*::q_ptr</signature>
         <signature>.*\(.*Private.*\).*</signature>
+	
+	<signature>.*operator.*</signature>
+
+	<!-- call to deleted function 'FunctionName' -->	
+	<signature>.*qHash\(QPointF, unsigned long long\).*</signature>
+	<signature>.*qHash\(QPointF\).*</signature>		
+	
+	<signature>.*qt_initial_random_value\(.*</signature>
+	<signature>.*qt_qhostinfo_lookup\(.*</signature>	
+
+	<signature>.*QSqlResult\(const QSqlDriver\*\)$</signature>
 
         <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
         <signature>^void qt_format_text\(.*\)$</signature>
-		
-		<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+
+	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
         <!-- Ignore Mac types -->
         <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
