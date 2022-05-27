@@ -1,5 +1,6 @@
 <config>
     <moduleName>qt6core</moduleName>
+	<parts>20</parts>
     <scalarTypes>
         <!-- QString is a class, but represented as a scalar (#) in munged names -->
         <typeName>QString</typeName>
@@ -72,9 +73,11 @@
 	<signature>.*QStringDecoder\(const QStringDecoder&amp;\)$</signature>
 	<signature>.*QStringEncoder\(const QStringEncoder&amp;\)$</signature>
 	<signature>.*QSemaphoreReleaser\(QSemaphoreReleaser&amp;\)$</signature>
-	
-	<!-- call to deleted constructor of 'Class Name' -->	
-	<signature>.*QBasicTimer\(QBasicTimer&amp;\)$</signature>
+
+        <signature>.*registerNormalizedTypedef.*</signature>
+
+        <!-- call to deleted constructor of 'Class Name' -->
+        <signature>.*QBasicTimer\(QBasicTimer&amp;\)$</signature>
 	
 	<!-- no matching constructor for initialization of 'QAssociativeIterable' -->
 	<signature>.*QAssociativeIterable\(QIterable\)$</signature> -->
