@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.18.4)
-project(SMOKEQT6)
+project(SMOKEQT6 LANGUAGES CXX)
 
-set(VERSION_MAJOR 6)
-set(VERSION_MINOR 2)
-set(VERSION_PATCH 4)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
 
 function(get_smokegen_args RESULT_NAME moduleName)
     set(clangOptions "-clangOptions")
     if(NOT WIN32)
-        list(APPEND clangOptions  "-fPIC")
+        list(APPEND clangOptions  "-std=c++17")
     endif()
 
     if(MSVC AND MSVC_VERSION GREATER 1600)
@@ -80,7 +80,7 @@ find_package(Qt6
     Qml
     Quick
     QuickWidgets
-    scxml
+    Scxml
     Sql
     Svg
     #Test
@@ -98,6 +98,11 @@ find_package(Qt6
     Xml
     QUIET
 )
+
+string(REPLACE "." ";" VERSION_LIST ${Qt6Core_VERSION})
+list(GET VERSION_LIST 0 VERSION_MAJOR)
+list(GET VERSION_LIST 1 VERSION_MINOR)
+list(GET VERSION_LIST 2 VERSION_PATCH)
 
 find_package(Smoke)
 

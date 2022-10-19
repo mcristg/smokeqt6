@@ -44,8 +44,7 @@
 	<signature>.*operator.*</signature>
 
 	<!-- call to deleted function 'Function Name' -->	
-	<signature>.*qHash\(QPointF, unsigned long long\).*</signature>
-	<signature>.*qHash\(QPointF\).*</signature>
+	<signature>.*qHash\(QPointF,.*.*</signature>
 		
 	<signature>.*qt_initial_random_value\(.*</signature>
 	<signature>.*qt_qhostinfo_lookup\(.*</signature>		
