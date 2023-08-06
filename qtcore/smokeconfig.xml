@@ -1,391 +1,384 @@
 <config>
-    <moduleName>qt6core</moduleName>
-	<parts>20</parts>
-    <scalarTypes>
-        <!-- QString is a class, but represented as a scalar (#) in munged names -->
-        <typeName>QString</typeName>
-    </scalarTypes>
-    <voidpTypes>
-        <!-- both are classes, but they are represented as Smoke::t_voidp -->
-        <typeName>QStringList</typeName>
-        <typeName>QString</typeName>
-    </voidpTypes>
-    <exclude>
-        <!-- Avoid including any functions that start with "q" thar are not
-             part of Qt -->
-        <signature>.*void quick_exit\(int\).*$</signature>
-        <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
-        <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
+  <moduleName>qt6core</moduleName>
+  <parts>20</parts>
+  <scalarTypes>
+    <!-- QString is a class, but represented as a scalar (#) in munged names -->
+    <typeName>QString</typeName>
+  </scalarTypes>
+  <voidpTypes>
+    <!-- both are classes, but they are represented as Smoke::t_voidp -->
+    <typeName>QStringList</typeName>
+    <typeName>QString</typeName>
+  </voidpTypes>
+  <exclude>
+    <!-- Avoid including any functions that start with "q" thar are not part of Qt -->
+    <signature>.*void quick_exit\(int\).*$</signature>
+    <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
+    <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
+    <!-- we don't want private stuff in smoke.. -->
+    <signature>.*::d_ptr.*</signature>
+    <signature>.*::q_ptr.*</signature>
+    <signature>.*Private.*</signature>
 
-        <!-- we don't want private stuff in smoke.. -->
-        <signature>.*::d_ptr.*</signature>
-        <signature>.*::q_ptr.*</signature>
-        <signature>.*Private.*</signature>
+    <!-- is a protected member -->
+    <signature>.*(QEvent::PointerEventTag*).*</signature>
+    <signature>.*(QEvent::InputEventTag*).*</signature>
+    <signature>.*(QEvent::SinglePointEventTag*).*</signature>
+    <signature>.*(QStringTokenizerBaseBase::tokenizer_state*).*</signature>
+    <signature>.*QRandomGenerator::InitialRandomData.*</signature>
+    <signature>.*QAssociativeIterable::initialization.*</signature>
+    <signature>.*QStringConverter::Interface.*</signature>
+    <signature>.*QStringConverterBase::State.*</signature>
 
-	<!-- is a protected member -->		
-	<signature>.*(QEvent::PointerEventTag*).*</signature>
-	<signature>.*(QEvent::InputEventTag*).*</signature>
-	<signature>.*(QEvent::SinglePointEventTag*).*</signature>
-	<signature>.*(QStringTokenizerBaseBase::tokenizer_state*).*</signature>
-	<signature>.*QRandomGenerator::InitialRandomData.*</signature>
-	<signature>.*QAssociativeIterable::initialization.*</signature>
-	<signature>.*QStringConverter::Interface.*</signature>
-	
-	<signature>.*QStringConverterBase::State.*</signature>
-	
-	<!-- lld-link : error : undefined symbol: __declspec(dllimport) public: static <auto> __cdecl QChar::fromUcs4(char32_t)-->
-	<signature>.*QChar::fromUcs4.*</signature>
-		
-	<!-- call to deleted function -->		
-	<signature>.*operator+.*\(.*,.*.*</signature>
-        <signature>.*operator-.*\(.*,.*.*</signature>
-	<signature>.*qHash.*\(.*,.*.*</signature>
-	<signature>.*operator=.*\(.*,.*.*</signature>
-	<signature>.*operator=.*\(.*.*</signature>
-	
-	<signature>.*QExplicitlySharedDataPointer&lt;QCollatorSortKeyPrivate&gt;.*</signature>
-        <signature>.*Q(ByteArray|String)::(from|to)Std(W)?String.*</signature>
-        <signature>^QSharedDataPointer&lt;QCollatorSortKeyPrivate&gt; QCollatorSortKey::d$</signature>
-        <signature>^static int QMetaType::registerNormalizedType(|def)\(.*</signature>
-        <signature>^static int QMetaType::type\(const QByteArray.*\)$</signature>
-        <signature>^QExplicitlySharedDataPointer&lt;QMimeTypePrivate&gt; QMimeType::d$</signature>
-        <signature>^(::)?QResource\* QResource::QResource\(const QResource.*&amp;.*\)</signature>
-        <signature>.*QString::v?a?sprintf.*</signature>
-        <signature>.*QUuid::data4.*</signature>
-        <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
-        <signature>^std::reverse_iterator.*</signature>
-        <signature>^QDebug.*&amp;.*operator&lt;&lt;.*\(.*nullptr.*\)$</signature>
-        <signature>^static QString QString::fromStdU16String\(.*\)$</signature>
-        <signature>.*QString::toStdU16String\(.*\) const$</signature>
-        <signature>^static QString QString::fromStdU32String\(.*\)$</signature>
-        <signature>.*QString::toStdU32String\(.*\) const$</signature>
-        <signature>.*std::chrono::duration.*</signature>
-        <signature>^void QMessageLogContext::copy\(const QMessageLogContext&amp;\)$</signature>
-        <signature>.*std::chrono::.*QDeadlineTimer::remainingTimeAsDuration\(\) const$</signature>
-	<signature>.*QDataStream::operator...*q(int|float).*</signature>
-	<signature>.*operator=\(QBasicTimer&amp;.*.*</signature>
-	
-	<!--  -->	
-	<signature>.*QByteArray::FromBase64Result::decodingStatus.*</signature>
-	
-	<!-- call to implicitly-deleted copy constructor of 'ClassName' -->	
-	<signature>.*QStringConverter\(const QStringConverter&amp;\)$</signature>
-	<signature>.*QStringDecoder\(const QStringDecoder&amp;\)$</signature>
-	<signature>.*QStringEncoder\(const QStringEncoder&amp;\)$</signature>
-	<signature>.*QSemaphoreReleaser\(QSemaphoreReleaser&amp;\)$</signature>
+    <!-- lld-link : error : undefined symbol: __declspec(dllimport) public: static <auto> __cdecl QChar::fromUcs4(char32_t)-->
+    <signature>.*QChar::fromUcs4.*</signature>
 
-        <signature>.*registerNormalizedTypedef.*</signature>
+    <!-- call to deleted function -->
+    <signature>.*operator+.*\(.*,.*.*</signature>
+    <signature>.*operator-.*\(.*,.*.*</signature>
+    <signature>.*qHash.*\(.*,.*.*</signature>
+    <signature>.*operator=.*\(.*,.*.*</signature>
+    <signature>.*operator=.*\(.*.*</signature>
+    <signature>.*QExplicitlySharedDataPointer&lt;QCollatorSortKeyPrivate&gt;.*</signature>
+    <signature>.*Q(ByteArray|String)::(from|to)Std(W)?String.*</signature>
+    <signature>^QSharedDataPointer&lt;QCollatorSortKeyPrivate&gt; QCollatorSortKey::d$</signature>
+    <signature>^static int QMetaType::registerNormalizedType(|def)\(.*</signature>
+    <signature>^static int QMetaType::type\(const QByteArray.*\)$</signature>
+    <signature>^QExplicitlySharedDataPointer&lt;QMimeTypePrivate&gt; QMimeType::d$</signature>
+    <signature>^(::)?QResource\* QResource::QResource\(const QResource.*&amp;.*\)</signature>
+    <signature>.*QString::v?a?sprintf.*</signature>
+    <signature>.*QUuid::data4.*</signature>
+    <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
+    <signature>^std::reverse_iterator.*</signature>
+    <signature>^QDebug.*&amp;.*operator&lt;&lt;.*\(.*nullptr.*\)$</signature>
+    <signature>^static QString QString::fromStdU16String\(.*\)$</signature>
+    <signature>.*QString::toStdU16String\(.*\) const$</signature>
+    <signature>^static QString QString::fromStdU32String\(.*\)$</signature>
+    <signature>.*QString::toStdU32String\(.*\) const$</signature>
+    <signature>.*std::chrono::duration.*</signature>
+    <signature>^void QMessageLogContext::copy\(const QMessageLogContext&amp;\)$</signature>
+    <signature>.*std::chrono::.*QDeadlineTimer::remainingTimeAsDuration\(\) const$</signature>
+    <signature>.*QDataStream::operator...*q(int|float).*</signature>
+    <signature>.*operator=\(QBasicTimer&amp;.*.*</signature>
 
-        <!-- call to deleted constructor of 'Class Name' -->
-        <signature>.*QBasicTimer\(QBasicTimer&amp;\)$</signature>
-	
-	<!-- no matching constructor for initialization of 'QAssociativeIterable' -->
-	<signature>.*QAssociativeIterable\(QIterable\)$</signature> -->
-		
-	<signature>.*enum QRandomGenerator::System.*</signature>
-	
-	<signature>.*QArrayDataPointer.*</signature>
-		
-        <!-- Smoke does not have complete rvalue reference support -->
-        <signature>^(::)?QSignalBlocker\*.*QSignalBlocker::QSignalBlocker\(QSignalBlocker.*\).*</signature>
-        <signature>^(::)?QSignalBlocker.*&amp;.*(QSignalBlocker::)?operator=\(QSignalBlocker.*&amp;.*\).*</signature>
-		
-	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;).*\(.*QDataStream.*&amp;.*\)</signature>
-	<!-- <signature></signature> -->
+    <!--  -->
+    <signature>.*QByteArray::FromBase64Result::decodingStatus.*</signature>
 
-        <!-- Ignore Mac types -->
-        <signature>^CGPoint QPointF?::toCGPoint\(\) const$</signature>
-        <signature>^static QPointF? QPointF?::fromCGPoint\(CGPoint\)$</signature>
-        <signature>^CGRect QRectF?::toCGRect\(\) const$</signature>
-        <signature>^static QRectF? QRectF?::fromCGRect\(CGRect\)$</signature>
-        <signature>^CGSize QSizeF?::toCGSize\(\) const$</signature>
-        <signature>^static QSizeF? QSizeF?::fromCGSize\(CGSize\)$</signature>
-        <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
-        <signature>.*(from|to)(Raw)?NS(Data|Date|String|URL|UUID|TimeZone).*</signature>
-    </exclude>
-    <functions>
-        <!-- include functions starting with 'q' -->
-        <name>^q.*</name>
-        <name>.*::q.*</name>
-        <!-- and operators -->
-        <name>.*operator.*</name>
-		<name>.*::operator.*</name>
+    <!-- call to implicitly-deleted copy constructor of 'ClassName' -->
+    <signature>.*QStringConverter\(const QStringConverter&amp;\)$</signature>
+    <signature>.*QStringDecoder\(const QStringDecoder&amp;\)$</signature>
+    <signature>.*QStringEncoder\(const QStringEncoder&amp;\)$</signature>
+    <signature>.*QSemaphoreReleaser\(QSemaphoreReleaser&amp;\)$</signature>
+    <signature>.*registerNormalizedTypedef.*</signature>
 
-    </functions>
-    <classList>
-        <class>QAbstractAnimation</class>
-        <class>QAbstractEventDispatcher</class>
-        <class>QAbstractEventDispatcher::TimerInfo</class>
-        <class>QAbstractItemModel</class>
-        <class>QAbstractListModel</class>
-        <class>QAbstractNativeEventFilter</class>
-        <class>QAbstractProxyModel</class>
-        <class>QAbstractTableModel</class>
-        <class>QAdoptSharedDataTag</class>		
-        <class>QAnimationGroup</class>
-        <class>QAnyStringView</class>		
-        <!-- <class>QAssociativeIterable</class> -->
-        <class>QAtomicInt</class>
-        <class>QAtomicInteger</class>
-        <class>QAtomicPointer</class>
-        <class>QBEInteger</class>
-        <class>QBasicTimer</class>
-        <class>QBindable</class>		
-        <class>QBitArray</class>
-        <class>QBuffer</class>
-        <class>QByteArray</class>
-        <class>QByteArray::FromBase64Result</class>		
-        <class>QByteArrayList</class>
-        <class>QByteArrayMatcher</class>
-        <class>QByteArrayView</class>
-        <class>QCache</class>
-	<class>QCalendar</class>
-	<class>QCborArray</class>
-	<class>QCborError</class>
-	<class>QCborMap</class>
-	<class>QCborMap::ConstIterator</class>
-	<class>QCborMap::Iterator</class>
-	<class>QCborParserError</class>
-	<class>QCborStreamReader</class>
-	<class>QCborStreamReader::StringResult</class>
-	<class>QCborStreamWriter</class>
-	<class>QCborValue</class>
-        <class>QChar</class>
-        <class>QChildEvent</class>
-        <class>QCollator</class>
-        <class>QCollatorSortKey</class>
-        <class>QCommandLineOption</class>
-        <class>QCommandLineParser</class>
-	<class>QConcatenateTablesProxyModel</class>
-	<class>QConstIterator</class>
-        <class>QContiguousCache</class>
-        <class>QCoreApplication</class>
-        <class>QCryptographicHash</class>
-        <class>QDataStream</class>
-        <class>QDate</class>
-        <class>QDateTime</class>
-        <class>QDeadlineTimer</class>
-        <class>QDebug</class>
-        <class>QDebugStateSaver</class>
-        <class>QDir</class>
-        <class>QDirIterator</class>
-        <class>QDynamicPropertyChangeEvent</class>
-        <class>QEasingCurve</class>
-        <class>QElapsedTimer</class>
-        <class>QEnableSharedFromThis</class>
-        <class>QEvent</class>
-        <class>QEventLoop</class>
-        <class>QEventLoopLocker</class>
-        <!-- <class>QException</class> -->
-        <class>QExplicitlySharedDataPointer</class>
-        <class>QFile</class>
-        <class>QFileDevice</class>
-        <class>QFileInfo</class>
-        <class>QFileSelector</class>
-        <class>QFileSystemWatcher</class>
-        <class>QFinalState</class>
-        <class>QFlag</class>
-        <class>QFlags</class>
-        <class>QFuture</class>
-        <class>QFutureIterator</class>
-        <class>QFutureSynchronizer</class>
-        <class>QFutureWatcher</class>
-        <class>QGenericArgument</class>
-        <class>QGenericReturnArgument</class>
-        <class>QGlobalStatic</class>
-	<class>QGregorianCalendar</class>
-        <class>QHash</class>
-        <class>QHashIterator</class>
-        <class>QIODevice</class>
-        <class>QIdentityProxyModel</class>
-        <class>QItemSelection</class>
-        <class>QItemSelectionModel</class>
-        <class>QItemSelectionRange</class>
-	<class>QIterable</class>
-	<class>QIterator</class>
-	<class>QJalaliCalendar</class>
-        <class>QJsonArray</class>
-        <class>QJsonDocument</class>
-        <class>QJsonObject</class>
-        <class>QJsonParseError</class>
-        <class>QJsonValue</class>
-	<class>QJulianCalendar</class>
-	<class>QKeyCombination</class>
-	<class>QKeyValueIterator</class>
-        <class>QLatin1Char</class>
-        <class>QLatin1String</class>
-        <class>QLibrary</class>
-        <class>QLibraryInfo</class>
-        <class>QLine</class>
-        <class>QLineF</class>
-        <class>QList</class>
-        <class>QListIterator</class>
-        <class>QLocale</class>
-        <class>QLockFile</class>
-        <class>QLoggingCategory</class>
-        <class>QMap</class>
-        <class>QMapIterator</class>
-        <class>QMargins</class>
-        <class>QMarginsF</class>
-        <class>QMessageAuthenticationCode</class>
-        <class>QMessageLogContext</class>
-        <class>QMessageLogger</class>
-        <class>QMetaClassInfo</class>
-        <class>QMetaEnum</class>
-        <class>QMetaMethod</class>
-        <class>QMetaObject</class>
-        <class>QMetaObject::Connection</class>
-        <class>QMetaProperty</class>
-	<class>QMetaSequence</class>
-        <class>QMetaType</class>
-	<class>QMilankovicCalendar</class>
-        <class>QMimeData</class>
-        <class>QMimeDatabase</class>
-        <class>QMimeType</class>
-        <class>QModelIndex</class>
-	<class>QModelRoleData</class>
-	<class>QModelRoleDataSpan</class>
-        <class>QMultiHash</class>
-        <class>QMultiMap</class>
-	<class>QMultiMap::key_iterator</class>
-	<class>QMultiMapIterator</class>
-        <class>QMutableHashIterator</class>
-        <class>QMutableListIterator</class>
-        <class>QMutableMapIterator</class>
-	<class>QMutableMultiMapIterator</class>
-        <class>QMutableSetIterator</class>
-        <class>QMutex</class>
-        <class>QMutexLocker</class>
-        <class>QObject</class>
-	<class>QObjectBindableProperty</class>
-        <class>QObjectCleanupHandler</class>
-	<class>QObjectComputedProperty</class>
-        <class>QOperatingSystemVersion</class>
-	<class>QParallelAnimationGroup</class>
-	<class>QPartialOrdering</class>
-	<class>QPauseAnimation</class>
-	<class>QPersistentModelIndex</class>
-	<class>QPluginLoader</class>
-        <class>QPair</class>
-        <class>QParallelAnimationGroup</class>
-        <class>QPauseAnimation</class>
-        <class>QPersistentModelIndex</class>
-        <class>QPluginLoader</class>
-        <class>QPoint</class>
-        <class>QPointF</class>
-        <class>QPointer</class>
-        <class>QProcess</class>
-	<class>QProcess::CreateProcessArguments</class>
-        <class>QProcessEnvironment</class>
-	<class>QPromise</class>
-	<class>QProperty</class>
-        <class>QPropertyAnimation</class>
-	<class>QPropertyBindingError</class>
-	<class>QPropertyChangeHandler</class>
-	<class>QPropertyData</class>
-	<class>QPropertyNotifier</class>
-        <class>QQueue</class>
-	<!-- <class>QRandomGenerator</class> -->
-	<class>QRandomGenerator64</class>
-        <class>QReadLocker</class>
-        <class>QReadWriteLock</class>
-        <class>QRect</class>
-        <class>QRectF</class>
-        <class>QRecursiveMutex</class>
-        <class>QRegularExpression</class>
-        <class>QRegularExpressionMatch</class>
-        <class>QRegularExpressionMatchIterator</class>
-        <class>QResource</class>
-	<class>QRomanCalendar</class>
-        <class>QRunnable</class>
-        <class>QSaveFile</class>
-	<class>QScopeGuard</class>
-        <class>QScopedArrayPointer</class>
-        <class>QScopedPointer</class>
-        <class>QScopedValueRollback</class>
-        <class>QSemaphore</class>
-	<class>QSemaphoreReleaser</class>
-        <class>QSequentialAnimationGroup</class>
-        <!-- <class>QSequentialIterable</class> -->
-        <class>QSet</class>
-        <class>QSet::const_iterator</class>
-        <class>QSet::iterator</class>
-        <class>QSetIterator</class>
-        <class>QSettings</class>
-        <class>QSharedData</class>
-        <class>QSharedDataPointer</class>
-        <class>QSharedMemory</class>
-        <class>QSharedPointer</class>
-        <class>QSignalBlocker</class>
-        <class>QSignalMapper</class>
-        <class>QSignalTransition</class>
-        <class>QSize</class>
-        <class>QSizeF</class>
-        <class>QSocketNotifier</class>
-        <class>QSortFilterProxyModel</class>
-        <class>QStack</class>
-        <class>QStandardPaths</class>
-	<class>QStaticByteArrayMatcher</class>
-        <!-- <class>QStaticPlugin</class> -->
-        <class>QStorageInfo</class>
-        <class>QString</class>
-	<class>QStringConverter</class>
-	<class>QStringDecoder</class>
-	<class>QStringEncoder</class>
-        <class>QStringList</class>
-        <class>QStringListModel</class>
-        <class>QStringMatcher</class>
-        <class>QStringTokenizer</class>
-	<class>QStringView</class>
-        <class>QSysInfo</class>
-        <class>QSystemSemaphore</class>
-	<class>QTaggedIterator</class>
-        <class>QTemporaryDir</class>
-        <class>QTemporaryFile</class>
-        <class>QTextBoundaryFinder</class>
-        <class>QTextStream</class>
-        <class>QThread</class>
-        <class>QThreadPool</class>
-        <class>QThreadStorage</class>
-        <class>QTime</class>
-        <class>QTimeLine</class>
-        <class>QTimeZone</class>
-        <class>QTimeZone::OffsetData</class>
-        <class>QTimer</class>
-        <class>QTimerEvent</class>
-        <class>QTranslator</class>
-        <class>QTypeRevision</class>
-	<!-- <class>QUnhandledException</class> -->
-	<class>QUntypedBindable</class>
-        <class>QUrl</class>
-        <class>QUrlQuery</class>
-	<class>QUtf8StringView</class>
-        <class>QUuid</class>
-        <class>QVarLengthArray</class>
-        <class>QVariant</class>
-        <class>QVariantAnimation</class>
-	<class>QVariantConstPointer</class>
-	<class>QVariantPointer</class>
-	<class>QVariantRef</class>
-        <class>QVector</class>
-        <class>QVersionNumber</class>
-        <class>QWaitCondition</class>
-        <class>QWeakPointer</class>
-        <class>QWinEventNotifier</class>
-        <class>QWriteLocker</class>
-        <class>QXmlStreamAttribute</class>
-        <class>QXmlStreamAttributes</class>
-        <class>QXmlStreamEntityDeclaration</class>
-        <class>QXmlStreamEntityResolver</class>
-        <class>QXmlStreamNamespaceDeclaration</class>
-        <class>QXmlStreamNotationDeclaration</class>
-        <class>QXmlStreamReader</class>
-        <class>QXmlStreamWriter</class>
-	<class>qfloat16</class>
-	<class>QCborSimpleType</class>
-	<class>QMetaObjectBuilder</class>
+    <!-- call to deleted constructor of 'Class Name' -->
+    <signature>.*QBasicTimer\(QBasicTimer&amp;\)$</signature>
 
-        <!-- namespaces -->
-        <class>Qt</class>
-    </classList>
+    <!-- no matching constructor for initialization of 'QAssociativeIterable' -->
+    <signature>.*QAssociativeIterable\(QIterable\)$</signature>
+
+    <signature>.*enum QRandomGenerator::System.*</signature>
+    <signature>.*QArrayDataPointer.*</signature>
+
+    <signature>.*QMetaMethod::Data.*</signature>
+
+    <!-- Smoke does not have complete rvalue reference support -->
+    <signature>^(::)?QSignalBlocker\*.*QSignalBlocker::QSignalBlocker\(QSignalBlocker.*\).*</signature>
+    <signature>^(::)?QSignalBlocker.*&amp;.*(QSignalBlocker::)?operator=\(QSignalBlocker.*&amp;.*\).*</signature>
+    <signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;).*\(.*QDataStream.*&amp;.*\)</signature>
+
+    <!-- Ignore Mac types -->
+    <signature>^CGPoint QPointF?::toCGPoint\(\) const$</signature>
+    <signature>^static QPointF? QPointF?::fromCGPoint\(CGPoint\)$</signature>
+    <signature>^CGRect QRectF?::toCGRect\(\) const$</signature>
+    <signature>^static QRectF? QRectF?::fromCGRect\(CGRect\)$</signature>
+    <signature>^CGSize QSizeF?::toCGSize\(\) const$</signature>
+    <signature>^static QSizeF? QSizeF?::fromCGSize\(CGSize\)$</signature>
+    <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
+    <signature>.*(from|to)(Raw)?NS(Data|Date|String|URL|UUID|TimeZone).*</signature>
+  </exclude>
+  <functions>
+    <!-- include functions starting with 'q' -->
+    <name>^q.*</name>
+    <name>.*::q.*</name>
+    <!-- and operators -->
+    <name>.*operator.*</name>
+    <name>.*::operator.*</name>
+  </functions>
+  <classList>
+    <class>QAbstractAnimation</class>
+    <class>QAbstractEventDispatcher</class>
+    <class>QAbstractEventDispatcher::TimerInfo</class>
+    <class>QAbstractItemModel</class>
+    <class>QAbstractListModel</class>
+    <class>QAbstractNativeEventFilter</class>
+    <class>QAbstractProxyModel</class>
+    <class>QAbstractTableModel</class>
+    <class>QAdoptSharedDataTag</class>
+    <class>QAnimationGroup</class>
+    <class>QAnyStringView</class>
+    <!-- <class>QAssociativeIterable</class> -->
+    <class>QAtomicInt</class>
+    <class>QAtomicInteger</class>
+    <class>QAtomicPointer</class>
+    <class>QBEInteger</class>
+    <class>QBasicTimer</class>
+    <class>QBindable</class>
+    <class>QBitArray</class>
+    <class>QBuffer</class>
+    <class>QByteArray</class>
+    <class>QByteArray::FromBase64Result</class>
+    <class>QByteArrayList</class>
+    <class>QByteArrayMatcher</class>
+    <class>QByteArrayView</class>
+    <class>QCache</class>
+    <class>QCalendar</class>
+    <class>QCborArray</class>
+    <class>QCborError</class>
+    <class>QCborMap</class>
+    <class>QCborMap::ConstIterator</class>
+    <class>QCborMap::Iterator</class>
+    <class>QCborParserError</class>
+    <class>QCborStreamReader</class>
+    <class>QCborStreamReader::StringResult</class>
+    <class>QCborStreamWriter</class>
+    <class>QCborValue</class>
+    <class>QChar</class>
+    <class>QChildEvent</class>
+    <class>QCollator</class>
+    <class>QCollatorSortKey</class>
+    <class>QCommandLineOption</class>
+    <class>QCommandLineParser</class>
+    <class>QConcatenateTablesProxyModel</class>
+    <class>QConstIterator</class>
+    <class>QContiguousCache</class>
+    <class>QCoreApplication</class>
+    <!-- <class>QCryptographicHash</class> -->
+    <class>QDataStream</class>
+    <class>QDate</class>
+    <class>QDateTime</class>
+    <class>QDeadlineTimer</class>
+    <class>QDebug</class>
+    <class>QDebugStateSaver</class>
+    <class>QDir</class>
+    <class>QDirIterator</class>
+    <class>QDynamicPropertyChangeEvent</class>
+    <class>QEasingCurve</class>
+    <class>QElapsedTimer</class>
+    <class>QEnableSharedFromThis</class>
+    <class>QEvent</class>
+    <class>QEventLoop</class>
+    <class>QEventLoopLocker</class>
+    <!-- <class>QException</class> -->
+    <class>QExplicitlySharedDataPointer</class>
+    <class>QFile</class>
+    <class>QFileDevice</class>
+    <class>QFileInfo</class>
+    <class>QFileSelector</class>
+    <class>QFileSystemWatcher</class>
+    <class>QFinalState</class>
+    <class>QFlag</class>
+    <class>QFlags</class>
+    <class>QFuture</class>
+    <class>QFutureIterator</class>
+    <class>QFutureSynchronizer</class>
+    <class>QFutureWatcher</class>
+    <class>QGenericArgument</class>
+    <class>QGenericReturnArgument</class>
+    <class>QGlobalStatic</class>
+    <class>QGregorianCalendar</class>
+    <class>QHash</class>
+    <class>QHashIterator</class>
+    <class>QIODevice</class>
+    <class>QIdentityProxyModel</class>
+    <class>QItemSelection</class>
+    <class>QItemSelectionModel</class>
+    <class>QItemSelectionRange</class>
+    <class>QIterable</class>
+    <class>QIterator</class>
+    <class>QJalaliCalendar</class>
+    <class>QJsonArray</class>
+    <class>QJsonDocument</class>
+    <class>QJsonObject</class>
+    <class>QJsonParseError</class>
+    <class>QJsonValue</class>
+    <class>QJulianCalendar</class>
+    <class>QKeyCombination</class>
+    <class>QKeyValueIterator</class>
+    <class>QLatin1Char</class>
+    <class>QLatin1String</class>
+    <class>QLibrary</class>
+    <class>QLibraryInfo</class>
+    <class>QLine</class>
+    <class>QLineF</class>
+    <class>QList</class>
+    <class>QListIterator</class>
+    <class>QLocale</class>
+    <class>QLockFile</class>
+    <class>QLoggingCategory</class>
+    <class>QMap</class>
+    <class>QMapIterator</class>
+    <class>QMargins</class>
+    <class>QMarginsF</class>
+    <class>QMessageAuthenticationCode</class>
+    <class>QMessageLogContext</class>
+    <class>QMessageLogger</class>
+    <class>QMetaClassInfo</class>
+    <class>QMetaEnum</class>
+    <class>QMetaMethod</class>
+    <class>QMetaObject</class>
+    <class>QMetaObject::Connection</class>
+    <class>QMetaProperty</class>
+    <class>QMetaSequence</class>
+    <class>QMetaType</class>
+    <class>QMilankovicCalendar</class>
+    <class>QMimeData</class>
+    <class>QMimeDatabase</class>
+    <class>QMimeType</class>
+    <class>QModelIndex</class>
+    <class>QModelRoleData</class>
+    <class>QModelRoleDataSpan</class>
+    <class>QMultiHash</class>
+    <class>QMultiMap</class>
+    <class>QMultiMap::key_iterator</class>
+    <class>QMultiMapIterator</class>
+    <class>QMutableHashIterator</class>
+    <class>QMutableListIterator</class>
+    <class>QMutableMapIterator</class>
+    <class>QMutableMultiMapIterator</class>
+    <class>QMutableSetIterator</class>
+    <class>QMutex</class>
+    <class>QMutexLocker</class>
+    <class>QObject</class>
+    <class>QObjectBindableProperty</class>
+    <class>QObjectCleanupHandler</class>
+    <class>QObjectComputedProperty</class>
+    <class>QOperatingSystemVersion</class>
+    <class>QParallelAnimationGroup</class>
+    <class>QPartialOrdering</class>
+    <class>QPauseAnimation</class>
+    <class>QPersistentModelIndex</class>
+    <class>QPluginLoader</class>
+    <class>QPair</class>
+    <class>QParallelAnimationGroup</class>
+    <class>QPauseAnimation</class>
+    <class>QPersistentModelIndex</class>
+    <class>QPluginLoader</class>
+    <class>QPoint</class>
+    <class>QPointF</class>
+    <class>QPointer</class>
+    <class>QProcess</class>
+    <class>QProcess::CreateProcessArguments</class>
+    <class>QProcessEnvironment</class>
+    <class>QPromise</class>
+    <class>QProperty</class>
+    <class>QPropertyAnimation</class>
+    <class>QPropertyBindingError</class>
+    <class>QPropertyChangeHandler</class>
+    <class>QPropertyData</class>
+    <class>QPropertyNotifier</class>
+    <class>QQueue</class>
+    <!-- <class>QRandomGenerator</class> -->
+    <class>QRandomGenerator64</class>
+    <class>QReadLocker</class>
+    <class>QReadWriteLock</class>
+    <class>QRect</class>
+    <class>QRectF</class>
+    <class>QRecursiveMutex</class>
+    <class>QRegularExpression</class>
+    <class>QRegularExpressionMatch</class>
+    <class>QRegularExpressionMatchIterator</class>
+    <class>QResource</class>
+    <class>QRomanCalendar</class>
+    <class>QRunnable</class>
+    <class>QSaveFile</class>
+    <class>QScopeGuard</class>
+    <class>QScopedArrayPointer</class>
+    <class>QScopedPointer</class>
+    <class>QScopedValueRollback</class>
+    <class>QSemaphore</class>
+    <class>QSemaphoreReleaser</class>
+    <class>QSequentialAnimationGroup</class>
+    <!-- <class>QSequentialIterable</class> -->
+    <class>QSet</class>
+    <class>QSet::const_iterator</class>
+    <class>QSet::iterator</class>
+    <class>QSetIterator</class>
+    <class>QSettings</class>
+    <class>QSharedData</class>
+    <class>QSharedDataPointer</class>
+    <class>QSharedMemory</class>
+    <class>QSharedPointer</class>
+    <class>QSignalBlocker</class>
+    <class>QSignalMapper</class>
+    <class>QSignalTransition</class>
+    <class>QSize</class>
+    <class>QSizeF</class>
+    <class>QSocketNotifier</class>
+    <class>QSortFilterProxyModel</class>
+    <class>QStack</class>
+    <class>QStandardPaths</class>
+    <class>QStaticByteArrayMatcher</class>
+    <!-- <class>QStaticPlugin</class> -->
+    <class>QStorageInfo</class>
+    <class>QString</class>
+    <!-- <class>QStringConverter</class> -->
+    <!-- <class>QStringDecoder</class> -->
+    <class>QStringEncoder</class>
+    <class>QStringList</class>
+    <class>QStringListModel</class>
+    <class>QStringMatcher</class>
+    <class>QStringTokenizer</class>
+    <class>QStringView</class>
+    <class>QSysInfo</class>
+    <class>QSystemSemaphore</class>
+    <class>QTaggedIterator</class>
+    <!-- <class>QTemporaryDir</class> -->
+    <class>QTemporaryFile</class>
+    <class>QTextBoundaryFinder</class>
+    <class>QTextStream</class>
+    <class>QThread</class>
+    <class>QThreadPool</class>
+    <class>QThreadStorage</class>
+    <class>QTime</class>
+    <class>QTimeLine</class>
+    <class>QTimeZone</class>
+    <class>QTimeZone::OffsetData</class>
+    <class>QTimer</class>
+    <class>QTimerEvent</class>
+    <class>QTranslator</class>
+    <class>QTypeRevision</class>
+    <!-- <class>QUnhandledException</class> -->
+    <class>QUntypedBindable</class>
+    <class>QUrl</class>
+    <class>QUrlQuery</class>
+    <class>QUtf8StringView</class>
+    <class>QUuid</class>
+    <class>QVarLengthArray</class>
+    <class>QVariant</class>
+    <class>QVariantAnimation</class>
+    <class>QVariantConstPointer</class>
+    <class>QVariantPointer</class>
+    <class>QVariantRef</class>
+    <class>QVector</class>
+    <class>QVersionNumber</class>
+    <class>QWaitCondition</class>
+    <class>QWeakPointer</class>
+    <class>QWinEventNotifier</class>
+    <class>QWriteLocker</class>
+    <class>QXmlStreamAttribute</class>
+    <class>QXmlStreamAttributes</class>
+    <class>QXmlStreamEntityDeclaration</class>
+    <class>QXmlStreamEntityResolver</class>
+    <class>QXmlStreamNamespaceDeclaration</class>
+    <class>QXmlStreamNotationDeclaration</class>
+    <class>QXmlStreamReader</class>
+    <class>QXmlStreamWriter</class>
+    <class>qfloat16</class>
+    <class>QCborSimpleType</class>
+    <class>QMetaObjectBuilder</class>
+
+    <!-- namespaces -->
+    <class>Qt</class>
+  </classList>
 </config>
