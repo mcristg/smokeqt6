@@ -34,7 +34,8 @@
 	<!-- call to deleted function -->
 	<signature>.*operator+.*\(.*,.*.*</signature>
         <signature>.*operator-.*\(.*,.*.*</signature>
-        <signature>.*qHash.*\(.*,.*.*</signature>	
+        <!--<signature>.*qHash.*\(.*,.*.*</signature> -->
+        <signature>.*qHash\(QPointF,.*.*</signature>	
 		
         <!-- This class is non-copyable -->
         <signature>^QBackingStore\* QBackingStore::QBackingStore\(const QBackingStore&amp;\)$</signature>
