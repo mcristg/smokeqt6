@@ -26,4 +26,3 @@
 #include <QOpenGLFunctions_4_4_Core>
 #include <QOpenGLFunctions_4_5_Compatibility>
 #include <QOpenGLFunctions_4_5_Core>
-#include <QOpenGLFunctions_ES2>
