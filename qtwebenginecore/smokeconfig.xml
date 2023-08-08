@@ -1,61 +1,60 @@
 <config>
-    <moduleName>qt6webenginecore</moduleName>
-    <parentModules>
-        <module>qt6core</module>
-        <module>qt6gui</module>
-        <module>qt6quick</module>
-        <module>qt6network</module>
-    </parentModules>
-    <parts>1</parts>
-    <scalarTypes>
-        <!-- QString is a class, but represented as a scalar (#) in munged names -->
-        <typeName>QString</typeName>
-    </scalarTypes>
-    <voidpTypes>
-        <!-- both are classes, but they are represented as Smoke::t_voidp -->
-        <typeName>QStringList</typeName>
-        <typeName>QString</typeName>
-    </voidpTypes>
-    <exclude>
-        <signature>.*operator.*</signature>
-        <signature>.*d_ptr.*</signature>	
-	
-    </exclude>
-    <classList>
-        <class>QWebEngineCertificateError</class>
-	<class>QWebEngineClientCertificateSelection</class>
-	<class>QWebEngineClientCertificateStore</class>
-	<class>QWebEngineContextMenuRequest</class>
-	<class>QWebEngineCookieStore</class>
-	<class>QWebEngineCookieStore::FilterRequest</class>
-        <class>QWebEngineDownloadRequest</class>
-        <class>QWebEngineFindTextResult</class>
-        <class>QWebEngineFullScreenRequest</class>
-        <class>QWebEngineHistory</class>
-        <class>QWebEngineHistoryItem</class>
-	<class>QWebEngineHistoryModel</class>
-	<class>QWebEngineHttpRequest</class>
-	<class>QWebEngineLoadingInfo</class>
-	<class>QWebEngineNavigationRequest</class>
-	<class>QWebEngineNewWindowRequest</class>
-	<class>QWebEngineNotification</class>
-	<class>QWebEnginePage</class>
-	<class>QWebEngineProfile</class>
-	<class>QWebEngineQuotaRequest</class>
-	<class>QWebEngineRegisterProtocolHandlerRequest</class>
-	<class>QWebEngineScript</class>
-	<class>QWebEngineScriptCollection</class>
-	<class>QWebEngineSettings</class>
-	<class>QWebEngineUrlRequestInfo</class>
-	<class>QWebEngineUrlRequestInterceptor</class>
-	<class>QWebEngineUrlRequestJob</class>
-	<class>QWebEngineUrlScheme</class>
-	<class>QWebEngineUrlSchemeHandler</class>
+  <moduleName>qt6webenginecore</moduleName>
+  <parentModules>
+    <module>qt6core</module>
+    <module>qt6gui</module>
+    <module>qt6quick</module>
+    <module>qt6network</module>
+  </parentModules>
+  <parts>1</parts>
+  <scalarTypes>
+    <!-- QString is a class, but represented as a scalar (#) in munged names -->
+    <typeName>QString</typeName>
+  </scalarTypes>
+  <voidpTypes>
+    <!-- both are classes, but they are represented as Smoke::t_voidp -->
+    <typeName>QStringList</typeName>
+    <typeName>QString</typeName>
+  </voidpTypes>
+  <exclude>
+    <signature>.*operator.*</signature>
+    <signature>.*d_ptr.*</signature>
+  </exclude>
+  <classList>
+    <class>QWebEngineCertificateError</class>
+    <class>QWebEngineClientCertificateSelection</class>
+    <class>QWebEngineClientCertificateStore</class>
+    <class>QWebEngineContextMenuRequest</class>
+    <class>QWebEngineCookieStore</class>
+    <class>QWebEngineCookieStore::FilterRequest</class>
+    <class>QWebEngineDownloadRequest</class>
+    <class>QWebEngineFindTextResult</class>
+    <class>QWebEngineFullScreenRequest</class>
+    <class>QWebEngineHistory</class>
+    <class>QWebEngineHistoryItem</class>
+    <class>QWebEngineHistoryModel</class>
+    <class>QWebEngineHttpRequest</class>
+    <class>QWebEngineLoadingInfo</class>
+    <class>QWebEngineNavigationRequest</class>
+    <class>QWebEngineNewWindowRequest</class>
+    <class>QWebEngineNotification</class>
+    <class>QWebEnginePage</class>
+    <class>QWebEngineProfile</class>
+    <class>QWebEngineQuotaRequest</class>
+    <class>QWebEngineRegisterProtocolHandlerRequest</class>
+    <class>QWebEngineScript</class>
+    <class>QWebEngineScriptCollection</class>
+    <class>QWebEngineSettings</class>
+    <class>QWebEngineUrlRequestInfo</class>
+    <class>QWebEngineUrlRequestInterceptor</class>
+    <class>QWebEngineUrlRequestJob</class>
+    <class>QWebEngineUrlScheme</class>
+    <class>QWebEngineUrlSchemeHandler</class>
 
-	<!-- Qt WebEngineQuick Module -->
-	<class>QQuickWebEngineProfile</class>
-	
-	<!-- Namespaces -->
-	<class>QtWebEngineQuick</class>
-    </classList>
+    <!-- Qt WebEngineQuick Module -->
+    <class>QQuickWebEngineProfile</class>
+
+    <!-- Namespaces -->
+    <class>QtWebEngineQuick</class>
+  </classList>
 </config>

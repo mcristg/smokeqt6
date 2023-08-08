@@ -1,87 +1,84 @@
 <config>
-    <moduleName>qt6dbus</moduleName>
-    <parentModules>
-        <module>qt6core</module>
-    </parentModules>
-    <parts>1</parts>
-    <scalarTypes>
-        <!-- QString is a class, but represented as a scalar (#) in munged names -->
-        <typeName>QString</typeName>
-        <typeName>QDBusObjectPath</typeName>
-        <typeName>QDBusSignature</typeName>
-    </scalarTypes>
-    <voidpTypes>
-        <!-- both are classes, but they are represented as Smoke::t_voidp -->
-        <typeName>QStringList</typeName>
-        <typeName>QString</typeName>
-        <typeName>QDBusObjectPath</typeName>
-        <typeName>QDBusSignature</typeName>
-    </voidpTypes>
-    <exclude>
-        <!-- Avoid including any functions that start with "q" thar are not
-             part of Qt -->
-        <signature>.*void quick_exit\(int\).*$</signature>
-        <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
-        <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
+  <moduleName>qt6dbus</moduleName>
+  <parentModules>
+    <module>qt6core</module>
+  </parentModules>
+  <parts>1</parts>
+  <scalarTypes>
+    <!-- QString is a class, but represented as a scalar (#) in munged names -->
+    <typeName>QString</typeName>
+    <typeName>QDBusObjectPath</typeName>
+    <typeName>QDBusSignature</typeName>
+  </scalarTypes>
+  <voidpTypes>
+    <!-- both are classes, but they are represented as Smoke::t_voidp -->
+    <typeName>QStringList</typeName>
+    <typeName>QString</typeName>
+    <typeName>QDBusObjectPath</typeName>
+    <typeName>QDBusSignature</typeName>
+  </voidpTypes>
+  <exclude>
+    <!-- Avoid including any functions that start with "q" thar are not part of Qt -->
+    <signature>.*void quick_exit\(int\).*$</signature>
+    <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
+    <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
 
-        <!-- we don't want private stuff in smoke.. -->
-        <signature>.*::d</signature>
-        <signature>.*::d_ptr</signature>
-        <signature>.*::q_ptr</signature>
-        <signature>.*\(.*Private.*\).*</signature>
-	
-	<signature>.*operator.*</signature>
+    <!-- we don't want private stuff in smoke.. -->
+    <signature>.*::d</signature>
+    <signature>.*::d_ptr</signature>
+    <signature>.*::q_ptr</signature>
+    <signature>.*\(.*Private.*\).*</signature>
+    <signature>.*operator.*</signature>
 
-	<!-- call to deleted function 'Function Name' -->	
-	<signature>.*qHash\(QPointF, unsigned long long\).*</signature>
-	<signature>.*qHash\(QPointF\).*</signature>		
-	<signature>.*qHash.*\(.*,.*.*</signature>	
-	
-	<signature>.*qt_initial_random_value\(.*</signature>
-	<signature>.*qt_qhostinfo_lookup\(.*</signature>		
-		
-        <!-- friend functions with no defining prototype -->
-        <signature>^int q(R|Unr)egisterGuiVariant\(\)$</signature>
-        <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
+    <!-- call to deleted function 'Function Name' -->
+    <signature>.*qHash\(QPointF, unsigned long long\).*</signature>
+    <signature>.*qHash\(QPointF\).*</signature>
+    <signature>.*qHash.*\(.*,.*.*</signature>
+    
+    <signature>.*qt_initial_random_value\(.*</signature>
+    <signature>.*qt_qhostinfo_lookup\(.*</signature>
 
-        <signature>^virtual void QDBusConnectionInterface::connectNotify\(const QMetaMethod&amp;\)$</signature>
-        <signature>^virtual void QDBusConnectionInterface::disconnectNotify\(const QMetaMethod&amp;\)$</signature>
-		
-        <signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>		
+    <!-- friend functions with no defining prototype -->
+    <signature>^int q(R|Unr)egisterGuiVariant\(\)$</signature>
+    <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
 
-        <!-- Ignore Mac types -->
-        <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
-   </exclude>
-    <functions>
-        <!-- include functions starting with 'q' -->
-        <name>^q.*</name>
-        <name>.*::q.*</name>
-        <!-- and operators -->
-        <name>.*operator.*</name>
-    </functions>
-    <classList>
-        <class>QDBusAbstractAdaptor</class>
-        <class>QDBusAbstractInterface</class>
-        <class>QDBusArgument</class>
-        <class>QDBusConnection</class>
-        <class>QDBusConnectionInterface</class>
-        <class>QDBusContext</class>
-        <class>QDBusError</class>
-        <class>QDBusInterface</class>
-        <class>QDBusMessage</class>
-        <class>QDBusObjectPath</class>
-        <class>QDBusPendingCall</class>
-        <class>QDBusPendingCallWatcher</class>
-        <class>QDBusPendingReply</class>
-	<class>QDBusReply</class>
-	<class>QDBusServer</class>
-        <class>QDBusServiceWatcher</class>
-	<class>QDBusSignature</class>
-        <class>QDBusUnixFileDescriptor</class>
-        <class>QDBusVariant</class>
-	<class>QDBusVirtualObject</class>
+    <signature>^virtual void QDBusConnectionInterface::connectNotify\(const QMetaMethod&amp;\)$</signature>
+    <signature>^virtual void QDBusConnectionInterface::disconnectNotify\(const QMetaMethod&amp;\)$</signature>
+    <signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
-        <!-- namespaces -->
-        <class>QDBus</class>
-     </classList>
+    <!-- Ignore Mac types -->
+    <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
+  </exclude>
+  <functions>
+    <!-- include functions starting with 'q' -->
+    <name>^q.*</name>
+    <name>.*::q.*</name>
+    <!-- and operators -->
+    <name>.*operator.*</name>
+  </functions>
+  <classList>
+    <class>QDBusAbstractAdaptor</class>
+    <class>QDBusAbstractInterface</class>
+    <class>QDBusArgument</class>
+    <class>QDBusConnection</class>
+    <class>QDBusConnectionInterface</class>
+    <class>QDBusContext</class>
+    <class>QDBusError</class>
+    <class>QDBusInterface</class>
+    <class>QDBusMessage</class>
+    <class>QDBusObjectPath</class>
+    <class>QDBusPendingCall</class>
+    <class>QDBusPendingCallWatcher</class>
+    <class>QDBusPendingReply</class>
+    <class>QDBusReply</class>
+    <class>QDBusServer</class>
+    <class>QDBusServiceWatcher</class>
+    <class>QDBusSignature</class>
+    <class>QDBusUnixFileDescriptor</class>
+    <class>QDBusVariant</class>
+    <class>QDBusVirtualObject</class>
+
+    <!-- namespaces -->
+    <class>QDBus</class>
+  </classList>
 </config>

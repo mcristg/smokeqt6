@@ -1,26 +1,26 @@
 <config>
-    <moduleName>qt6webenginewidgets</moduleName>
-    <parentModules>
-        <module>qt6core</module>
-        <module>qt6gui</module>
-        <module>qt6quick</module>
-        <module>qt6network</module>
-        <module>qt6webenginecore</module>
-    </parentModules>
-    <parts>1</parts>
-    <scalarTypes>
-        <!-- QString is a class, but represented as a scalar (#) in munged names -->
-        <typeName>QString</typeName>
-    </scalarTypes>
-    <voidpTypes>
-        <!-- both are classes, but they are represented as Smoke::t_voidp -->
-        <typeName>QStringList</typeName>
-        <typeName>QString</typeName>
-    </voidpTypes>
-    <exclude>
-        <!-- <signature>.*QWebEngineCallback.*</signature> -->
-   </exclude>
-    <classList>
-        <class>QWebEngineView</class>
-    </classList>
+  <moduleName>qt6webenginewidgets</moduleName>
+  <parentModules>
+    <module>qt6core</module>
+    <module>qt6gui</module>
+    <module>qt6quick</module>
+    <module>qt6network</module>
+    <module>qt6webenginecore</module>
+  </parentModules>
+  <parts>1</parts>
+  <scalarTypes>
+    <!-- QString is a class, but represented as a scalar (#) in munged names -->
+    <typeName>QString</typeName>
+  </scalarTypes>
+  <voidpTypes>
+    <!-- both are classes, but they are represented as Smoke::t_voidp -->
+    <typeName>QStringList</typeName>
+    <typeName>QString</typeName>
+  </voidpTypes>
+  <exclude>
+    <!-- <signature>.*QWebEngineCallback.*</signature> -->
+  </exclude>
+  <classList>
+    <class>QWebEngineView</class>
+  </classList>
 </config>

@@ -1,76 +1,72 @@
 <config>
-    <moduleName>qt6sql</moduleName>
-    <parentModules>
-        <module>qt6core</module>
-        <module>qt6gui</module>
-    </parentModules>
-    <parts>1</parts>
-    <scalarTypes>
-        <!-- QString is a class, but represented as a scalar (#) in munged names -->
-        <typeName>QString</typeName>
-    </scalarTypes>
-    <voidpTypes>
-        <!-- both are classes, but they are represented as Smoke::t_voidp -->
-        <typeName>QStringList</typeName>
-        <typeName>QString</typeName>
-    </voidpTypes>
-    <exclude>
-        <!-- Avoid including any functions that start with "q" thar are not
-             part of Qt -->
-        <signature>.*void quick_exit\(int\).*$</signature>
-        <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
-        <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
+  <moduleName>qt6sql</moduleName>
+  <parentModules>
+    <module>qt6core</module>
+    <module>qt6gui</module>
+  </parentModules>
+  <parts>1</parts>
+  <scalarTypes>
+    <!-- QString is a class, but represented as a scalar (#) in munged names -->
+    <typeName>QString</typeName>
+  </scalarTypes>
+  <voidpTypes>
+    <!-- both are classes, but they are represented as Smoke::t_voidp -->
+    <typeName>QStringList</typeName>
+    <typeName>QString</typeName>
+  </voidpTypes>
+  <exclude>
+    <!-- Avoid including any functions that start with "q" thar are not part of Qt -->
+    <signature>.*void quick_exit\(int\).*$</signature>
+    <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
+    <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
 
-        <!-- we don't want private stuff in smoke.. -->
-        <signature>.*::d</signature>
-        <signature>.*::d_ptr</signature>
-        <signature>.*::q_ptr</signature>
-        <signature>.*\(.*Private.*\).*</signature>
-	
-	<signature>.*operator.*</signature>
+    <!-- we don't want private stuff in smoke.. -->
+    <signature>.*::d</signature>
+    <signature>.*::d_ptr</signature>
+    <signature>.*::q_ptr</signature>
+    <signature>.*\(.*Private.*\).*</signature>
+    <signature>.*operator.*</signature>
 
-	<!-- call to deleted function 'FunctionName' -->	
-	<signature>.*qHash\(QPointF,.*.*</signature>	
-	
-	<signature>.*qt_initial_random_value\(.*</signature>
-	<signature>.*qt_qhostinfo_lookup\(.*</signature>	
+    <!-- call to deleted function 'FunctionName' -->
+    <signature>.*qHash\(QPointF,.*.*</signature>
 
-	<signature>.*QSqlResult\(const QSqlDriver\*\)$</signature>
+    <signature>.*qt_initial_random_value\(.*</signature>
+    <signature>.*qt_qhostinfo_lookup\(.*</signature>
 
-        <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
-        <signature>^void qt_format_text\(.*\)$</signature>
+    <signature>.*QSqlResult\(const QSqlDriver\*\)$</signature>
+    <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
+    <signature>^void qt_format_text\(.*\)$</signature>
+    <signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
-	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+    <!-- Ignore Mac types -->
+    <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
+  </exclude>
+  <functions>
+    <!-- include functions starting with 'q' -->
+    <name>^q.*</name>
+    <name>.*::q.*</name>
+    <!-- and operators -->
+    <name>.*operator.*</name>
+  </functions>
+  <classList>
+    <class>QSqlDatabase</class>
+    <class>QSqlDriver</class>
+    <class>QSqlDriverCreator</class>
+    <class>QSqlDriverCreatorBase</class>
+    <class>QSqlDriverPlugin</class>
+    <class>QSqlError</class>
+    <class>QSqlField</class>
+    <class>QSqlIndex</class>
+    <class>QSqlQuery</class>
+    <class>QSqlQueryModel</class>
+    <class>QSqlRecord</class>
+    <class>QSqlRelation</class>
+    <class>QSqlRelationalDelegate</class>
+    <class>QSqlRelationalTableModel</class>
+    <class>QSqlResult</class>
+    <class>QSqlTableModel</class>
 
-        <!-- Ignore Mac types -->
-        <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
-    </exclude>
-    <functions>
-        <!-- include functions starting with 'q' -->
-        <name>^q.*</name>
-        <name>.*::q.*</name>
-        <!-- and operators -->
-        <name>.*operator.*</name>
-    </functions>
-    <classList>
-        <class>QSqlDatabase</class>
-        <class>QSqlDriver</class>
-        <class>QSqlDriverCreator</class>
-        <class>QSqlDriverCreatorBase</class>
-        <class>QSqlDriverPlugin</class>
-        <class>QSqlError</class>
-        <class>QSqlField</class>
-        <class>QSqlIndex</class>
-        <class>QSqlQuery</class>
-        <class>QSqlQueryModel</class>
-        <class>QSqlRecord</class>
-        <class>QSqlRelation</class>
-        <class>QSqlRelationalDelegate</class>
-        <class>QSqlRelationalTableModel</class>
-        <class>QSqlResult</class>
-        <class>QSqlTableModel</class>
-
-        <!-- namespaces -->
-        <class>QSql</class>
-    </classList>
+    <!-- namespaces -->
+    <class>QSql</class>
+  </classList>
 </config>

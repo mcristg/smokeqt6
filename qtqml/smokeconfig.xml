@@ -1,87 +1,84 @@
 <config>
-    <moduleName>qt6qml</moduleName>
-    <parentModules>
-        <module>qt6core</module>
-        <module>qt6network</module>
-    </parentModules>
-    <parts>1</parts>
-    <scalarTypes>
-        <!-- QString is a class, but represented as a scalar (#) in munged names -->
-        <typeName>QString</typeName>
-    </scalarTypes>
-    <voidpTypes>
-        <!-- both are classes, but they are represented as Smoke::t_voidp -->
-        <typeName>QStringList</typeName>
-        <typeName>QString</typeName>
-    </voidpTypes>
-    <exclude>
-        <!-- Avoid including any functions that start with "q" thar are not
-             part of Qt -->
-        <signature>.*void quick_exit\(int\).*$</signature>
-        <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
-        <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
+  <moduleName>qt6qml</moduleName>
+  <parentModules>
+    <module>qt6core</module>
+    <module>qt6network</module>
+  </parentModules>
+  <parts>1</parts>
+  <scalarTypes>
+    <!-- QString is a class, but represented as a scalar (#) in munged names -->
+    <typeName>QString</typeName>
+  </scalarTypes>
+  <voidpTypes>
+    <!-- both are classes, but they are represented as Smoke::t_voidp -->
+    <typeName>QStringList</typeName>
+    <typeName>QString</typeName>
+  </voidpTypes>
+  <exclude>
+    <!-- Avoid including any functions that start with "q" thar are not part of Qt -->
+    <signature>.*void quick_exit\(int\).*$</signature>
+    <signature>.*void qsort(_[rb])?\(void\*, unsigned long, unsigned long.*</signature>
+    <signature>.*(int|char\*) q(e|f|g)cvt(_r)?\(.*</signature>
 
-        <!-- we don't want private stuff in smoke.. -->
-        <signature>.*::d_ptr</signature>
-        <signature>.*::q_ptr</signature>
-        <signature>.*\(.*Private.*\).*</signature>
-	
-	<signature>.*operator.*</signature>
+    <!-- we don't want private stuff in smoke.. -->
+    <signature>.*::d_ptr</signature>
+    <signature>.*::q_ptr</signature>
+    <signature>.*\(.*Private.*\).*</signature>
 
-	<!-- call to deleted function 'FunctionName' -->	
-	<signature>.*qHash\(QPointF,.*.*</signature>
+    <signature>.*operator.*</signature>
 
-	<signature>.*qt_initial_random_value\(.*</signature>
-	<signature>.*qt_qhostinfo_lookup\(.*</signature>
-		
-        <!-- <signature>.*QJSManagedValue\(.*QJSManagedValue.*&amp;.*\)</signature> -->
-	
-	<!-- no matching constructor for initialization of 'QJSValue' -->
-	<signature>.*QJSValue\(.*QJSManagedValue.*&amp;.*\)</signature>
-	<signature>.*QJSValue\(.*QJSPrimitiveValue.*&amp;.*\)</signature>
+    <!-- call to deleted function 'FunctionName' -->
+    <signature>.*qHash\(QPointF,.*.*</signature>
 
-        <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
-	
-	<signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+    <signature>.*qt_initial_random_value\(.*</signature>
+    <signature>.*qt_qhostinfo_lookup\(.*</signature>
 
-        <!-- Ignore Mac types -->
-        <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
-    </exclude>
-    <functions>
-        <!-- include functions starting with 'q' -->
-        <name>^q.*</name>
-        <name>.*::q.*</name>
-        <!-- and operators -->
-        <name>.*operator.*</name>
-    </functions>
-    <classList>
-        <class>QJSEngine</class>
-	<!--<class>QJSManagedValue</class>-->
-	<class>QJSPrimitiveNull</class>
-	<class>QJSPrimitiveUndefined</class>
-	<class>QJSPrimitiveValue</class>
-        <class>QJSValue</class>
-        <class>QJSValueIterator</class>
-        <class>QQmlAbstractUrlInterceptor</class>
-        <class>QQmlApplicationEngine</class>
-        <class>QQmlComponent</class>
-        <class>QQmlContext</class>
-	<class>QQmlContext::PropertyPair</class>
-        <class>QQmlEngine</class>
-        <class>QQmlEngineExtensionPlugin</class>
-        <class>QQmlError</class>
-        <class>QQmlExpression</class>
-        <class>QQmlFileSelector</class>
-	<class>QQmlImageProviderBase</class>
-        <class>QQmlIncubationController</class>
-        <class>QQmlIncubator</class>
-        <class>QQmlListProperty</class>
-        <class>QQmlListReference</class>
-        <class>QQmlNetworkAccessManagerFactory</class>
-        <class>QQmlParserStatus</class>
-        <class>QQmlProperty</class>
-	<class>QQmlPropertyMap</class>
-        <class>QQmlPropertyValueSource</class>
-        <class>QQmlScriptString</class>
-    </classList>
+    <!-- no matching constructor for initialization of 'QJSValue' -->
+    <signature>.*QJSValue\(.*QJSManagedValue.*&amp;.*\)</signature>
+    <signature>.*QJSValue\(.*QJSPrimitiveValue.*&amp;.*\)</signature>
+
+    <signature>^bool qt_sendSpontaneousEvent\(.*\)$</signature>
+
+    <signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
+
+    <!-- Ignore Mac types -->
+    <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
+  </exclude>
+  <functions>
+    <!-- include functions starting with 'q' -->
+    <name>^q.*</name>
+    <name>.*::q.*</name>
+    <!-- and operators -->
+    <name>.*operator.*</name>
+  </functions>
+  <classList>
+    <class>QJSEngine</class>
+    <!--<class>QJSManagedValue</class>-->
+    <class>QJSPrimitiveNull</class>
+    <class>QJSPrimitiveUndefined</class>
+    <class>QJSPrimitiveValue</class>
+    <class>QJSValue</class>
+    <class>QJSValueIterator</class>
+    <class>QQmlAbstractUrlInterceptor</class>
+    <class>QQmlApplicationEngine</class>
+    <class>QQmlComponent</class>
+    <class>QQmlContext</class>
+    <class>QQmlContext::PropertyPair</class>
+    <class>QQmlEngine</class>
+    <class>QQmlEngineExtensionPlugin</class>
+    <class>QQmlError</class>
+    <class>QQmlExpression</class>
+    <class>QQmlFileSelector</class>
+    <class>QQmlImageProviderBase</class>
+    <class>QQmlIncubationController</class>
+    <class>QQmlIncubator</class>
+    <class>QQmlListProperty</class>
+    <class>QQmlListReference</class>
+    <class>QQmlNetworkAccessManagerFactory</class>
+    <class>QQmlParserStatus</class>
+    <class>QQmlProperty</class>
+    <class>QQmlPropertyMap</class>
+    <class>QQmlPropertyValueSource</class>
+    <class>QQmlScriptString</class>
+  </classList>
 </config>
