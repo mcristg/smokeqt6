@@ -37,7 +37,6 @@
 
     <signature>^(::)?QDataStream.*&amp;.*operator(&lt;&lt;|&gt;&gt;)\(.*QDataStream.*&amp;.*\)</signature>
 
-    <!--<signature>.*Qt3DCore::QBackendNode::sendCommand\(const QString&amp;.*</signature>-->
     <signature>.*::sendCommand\(const QString&amp;.*</signature>
 
     <!-- call to deleted function 'Function Name' -->
@@ -48,6 +47,10 @@
 
     <signature>.*operator\|\(.*</signature>
     <signature>.*operator.*</signature>
+	
+	<!-- error lnk2019 unresolved external symbol __declspec(dllimport) -->
+	<signature>.*QGeometryView::geometryFactory.*</signature>
+	<signature>.*QGeometryView::setGeometryFactory.*</signature>
 
     <!-- Ignore Mac types -->
     <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -64,38 +67,26 @@
   <classList>
     <!-- Qt 3D Core Module -->
     <class>Qt3DCore::QAbstractAspect</class>
+	<class>Qt3DCore::QAbstractFunctor</class>
     <class>Qt3DCore::QAbstractSkeleton</class>
     <class>Qt3DCore::QArmature</class>
     <class>Qt3DCore::QAspectEngine</class>
     <class>Qt3DCore::QAspectJob</class>
+	<class>Qt3DCore::QAttribute</class>
     <class>Qt3DCore::QBackendNode</class>
     <!--<class>Qt3DCore::QBackendNodeMapper</class>-->
+    <class>Qt3DCore::QBoundingVolume</class>
+    <class>Qt3DCore::QBuffer</class>
     <class>Qt3DCore::QComponent</class>
-    <class>Qt3DCore::QComponentAddedChange</class>
-    <class>Qt3DCore::QComponentRemovedChange</class>
-    <class>Qt3DCore::QDynamicPropertyUpdatedChange</class>
+    <class>Qt3DCore::QCoreSettings</class>
     <class>Qt3DCore::QEntity</class>
+	<class>Qt3DCore::QGeometry</class>
+	<class>Qt3DCore::QGeometryView</class>
     <class>Qt3DCore::QJoint</class>
     <class>Qt3DCore::QNode</class>
-    <class>Qt3DCore::QNodeCommand</class>
-    <class>Qt3DCore::QNodeCreatedChange</class>
-    <class>Qt3DCore::QNodeCreatedChangeBase</class>
-    <class>Qt3DCore::QNodeDestroyedChange</class>
     <class>Qt3DCore::QNodeId</class>
-    <class>Qt3DCore::QPropertyNodeAddedChange</class>
-    <class>Qt3DCore::QPropertyNodeRemovedChange</class>
-    <class>Qt3DCore::QPropertyUpdatedChange</class>
-    <class>Qt3DCore::QPropertyUpdatedChangeBase</class>
-    <class>Qt3DCore::QPropertyValueAddedChange</class>
-    <class>Qt3DCore::QPropertyValueAddedChangeBase</class>
-    <class>Qt3DCore::QPropertyValueRemovedChange</class>
-    <class>Qt3DCore::QPropertyValueRemovedChangeBase</class>
-    <class>Qt3DCore::QSceneChange</class>
-    <class>Qt3DCore::QSkeleton</class>
+	<class>Qt3DCore::QSkeleton</class>
     <class>Qt3DCore::QSkeletonLoader</class>
-    <class>Qt3DCore::QStaticPropertyUpdatedChangeBase</class>
-    <class>Qt3DCore::QStaticPropertyValueAddedChangeBase</class>
-    <class>Qt3DCore::QStaticPropertyValueRemovedChangeBase</class>
     <class>Qt3DCore::QTransform</class>
     <class>Qt3DCore::Quick::QQmlAspectEngine</class>
 

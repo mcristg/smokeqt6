@@ -76,7 +76,6 @@
     <class>Qt3DAnimation::QChannelMapper</class>
     <class>Qt3DAnimation::QChannelMapping</class>
     <class>Qt3DAnimation::QClipAnimator</class>
-    <class>Qt3DAnimation::QClipBlendNodeCreatedChangeBase</class>
     <class>Qt3DAnimation::QClipBlendValue</class>
     <class>Qt3DAnimation::QKeyFrame</class>
     <class>Qt3DAnimation::QKeyframeAnimation</class>

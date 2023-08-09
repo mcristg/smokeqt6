@@ -53,6 +53,8 @@
     <signature>.*QSGRenderNode\(const QSGRenderNode.*&amp;.*\)</signature>
     <signature>.*QSGSimpleRectNode\(const QSGSimpleRectNode.*&amp;.*\)</signature>
     <signature>.*QSGTransformNode\(const QSGTransformNode.*&amp;.*\)</signature>
+	
+	<signature>.*QSGSimpleTextureNode::QSGSimpleTextureNode\(const QSGSimpleTextureNode.*&amp;.*\)</signature>
     
     <!-- Ignore Mac types -->
     <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -114,6 +116,7 @@
     <class>QSGRenderNode</class>
     <class>QSGRendererInterface</class>
     <class>QSGSimpleRectNode</class>
+	<class>QSGSimpleTextureNode</class>
     <class>QSGTexture</class>
     <class>QSGTextureMaterial</class>
     <class>QSGTextureProvider</class>

@@ -1,11 +1,9 @@
 <config>
-  <moduleName>qt6webenginewidgets</moduleName>
+  <moduleName>qt6pdf</moduleName>
   <parentModules>
     <module>qt6core</module>
     <module>qt6gui</module>
-    <module>qt6quick</module>
-    <module>qt6network</module>
-    <module>qt6webenginecore</module>
+    <module>qt6webengine</module>
   </parentModules>
   <parts>1</parts>
   <scalarTypes>
@@ -18,9 +16,18 @@
     <typeName>QString</typeName>
   </voidpTypes>
   <exclude>
-    <!-- <signature>.*QWebEngineCallback.*</signature> -->
+	<signature>.*QPdfSelection::qt_check_for_QGADGET_macro.*</signature>
+	<signature>.*QPdfLink::qt_check_for_QGADGET_macro.*</signature>
   </exclude>
   <classList>
-    <class>QWebEngineView</class>
+    <class>QPdfBookmarkModel</class>
+	<class>QPdfDocument</class>
+	<class>QPdfDocumentRenderOptions</class>
+	<class>QPdfLink</class>
+	<class>QPdfPageNavigator</class>
+	<class>QPdfPageRenderer</class>
+	<class>QPdfSearchModel</class>
+	<class>QPdfSelection</class>
+	<class>QPdfView</class>
   </classList>
 </config>

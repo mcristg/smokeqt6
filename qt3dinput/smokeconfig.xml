@@ -87,7 +87,6 @@
     <class>Qt3DInput::QMouseDevice</class>
     <class>Qt3DInput::QMouseEvent</class>
     <class>Qt3DInput::QMouseHandler</class>
-    <class>Qt3DInput::QPhysicalDeviceCreatedChangeBase</class>
     <class>Qt3DInput::QWheelEvent</class>
 
     <!-- namespaces -->

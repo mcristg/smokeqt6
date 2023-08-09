@@ -70,9 +70,7 @@
     <class>QMediaRecorder</class>
     <class>QMediaTimeRange</class>
     <class>QMediaTimeRange::Interval</class>
-    <class>QPlatformAudioDecoder</class>
-    <class>QPlatformAudioSink</class>
-    <class>QPlatformAudioSource</class>
+    <class>QScreenCapture</class>
     <class>QSoundEffect</class>
     <class>QVideoFrame</class>
     <class>QVideoFrameFormat</class>

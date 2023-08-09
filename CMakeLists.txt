@@ -84,6 +84,7 @@ if(Qt6_DIR)
   set(Qt6Quick_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6Quick")
   set(Qt6ScxmlTools_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6ScxmlTools")
   set(Qt6Scxml_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6Scxml")
+  set(Qt6SpatialAudio_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6SpatialAudio")
   set(Qt6Sql_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6Sql")
   set(Qt6Svg_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6Svg")
   set(Qt6UiPlugin_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6UiPlugin")
@@ -91,6 +92,7 @@ if(Qt6_DIR)
   set(Qt6WebChannel_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6WebChannel")
   set(Qt6WebEngineCoreTools_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6WebEngineCoreTools")
   set(Qt6WebEngineCore_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6WebEngineCore")
+  set(Qt6WebEngineQuick_DIR "${Qt_ROOT_DIR}/lib/cmake/ Qt6WebEngineQuick")
   set(Qt6WebEngineWidgets_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6WebEngineWidgets")
   set(Qt6WidgetsTools_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6WidgetsTools")
   set(Qt6Widgets_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6Widgets")
@@ -102,6 +104,7 @@ if(Qt6_DIR)
   set(Qt63DLogic_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt63DLogic")
   set(Qt63DRender_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt63DRender")
   set(Qt6Concurrent_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6Concurrent")
+  set(Qt6Pdf_DIR "${Qt_ROOT_DIR}/lib/cmake/Qt6Pdf")
 endif()   
 
 find_package(Vulkan REQUIRED)
@@ -116,18 +119,23 @@ find_package(Qt6
   MultimediaWidgets
   Network
   OpenGL
+  Pdf
+  PdfQuick
+  PdfWidgets
   Positioning
   PrintSupport
   Qml
   Quick
   QuickWidgets
   Scxml
+  SpatialAudio
   Sql
   Svg
   #Test
   UiTools
   WebChannel
   WebEngineCore
+  WebEngineQuick
   WebEngineWidgets
   Widgets
   3DAnimation
@@ -196,12 +204,14 @@ macro_optional_add_bindings(Qt6Multimedia_FOUND "QtMultimedia" qtmultimedia)
 macro_optional_add_bindings(Qt6MultimediaWidgets_FOUND "QtMultimediaWidgets" qtmultimediawidgets)
 macro_optional_add_bindings(Qt6Network_FOUND "QtNetwork" qtnetwork)
 macro_optional_add_bindings(Qt6OpenGL_FOUND "QtOpenGL" qtopengl)
+macro_optional_add_bindings(Qt6Pdf_FOUND "QtPdf" qtpdf)
 macro_optional_add_bindings(Qt6Positioning_FOUND "QtPositioning" qtpositioning)
 macro_optional_add_bindings(Qt6PrintSupport_FOUND "QtPrintSupport" qtprintsupport)
 macro_optional_add_bindings(Qt6Qml_FOUND "QtQml" qtqml)
 macro_optional_add_bindings(Qt6Quick_FOUND "QtQuick" qtquick)
 macro_optional_add_bindings(Qt6QuickWidgets_FOUND "QtQuickWidgets" qtquickwidgets)
 macro_optional_add_bindings(Qt6Scxml_FOUND "QtScxml" qtscxml)
+macro_optional_add_bindings(Qt6Scxml_FOUND "SpatialAudio" qtspatialaudio)
 macro_optional_add_bindings(Qt6Sql_FOUND "QtSql" qtsql)
 macro_optional_add_bindings(Qt6Svg_FOUND "QtSvg" qtsvg)
 #
@@ -209,8 +219,8 @@ macro_optional_add_bindings(Qt6Svg_FOUND "QtSvg" qtsvg)
 #
 macro_optional_add_bindings(Qt6UiTools_FOUND "QtUiTools" qtuitools)
 macro_optional_add_bindings(Qt6WebChannel_FOUND "QtWebChannel" qtwebchannel)
-macro_optional_add_bindings(Qt6WebEngineCore_FOUND "QtWebEngineCore" qtwebenginecore)
-macro_optional_add_bindings(Qt6WebEngineWidgets_FOUND "QtWebEngineWidgets" qtwebenginewidgets)
+macro_optional_add_bindings(Qt6WebEngineCore_FOUND "QtWebEngine" qtwebengine)
+#macro_optional_add_bindings(Qt6WebEngineWidgets_FOUND "QtWebEngineWidgets" qtwebenginewidgets)
 macro_optional_add_bindings(Qt6Widgets_FOUND "QtWidgets" qtwidgets)
 macro_optional_add_bindings(Qt6Xml_FOUND "QtXml" qtxml)
 #

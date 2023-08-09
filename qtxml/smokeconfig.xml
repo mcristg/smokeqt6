@@ -50,6 +50,7 @@
     <class>QDomCharacterData</class>
     <class>QDomComment</class>
     <class>QDomDocument</class>
+	<class>QDomDocument::ParseResult</class>
     <class>QDomDocumentFragment</class>
     <class>QDomDocumentType</class>
     <class>QDomElement</class>

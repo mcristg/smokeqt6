@@ -1,5 +1,5 @@
 <config>
-  <moduleName>qt6webenginecore</moduleName>
+  <moduleName>qt6webengine</moduleName>
   <parentModules>
     <module>qt6core</module>
     <module>qt6gui</module>
@@ -28,6 +28,7 @@
     <class>QWebEngineCookieStore</class>
     <class>QWebEngineCookieStore::FilterRequest</class>
     <class>QWebEngineDownloadRequest</class>
+	<class>QWebEngineFileSystemAccessRequest</class>
     <class>QWebEngineFindTextResult</class>
     <class>QWebEngineFullScreenRequest</class>
     <class>QWebEngineHistory</class>
@@ -40,7 +41,6 @@
     <class>QWebEngineNotification</class>
     <class>QWebEnginePage</class>
     <class>QWebEngineProfile</class>
-    <class>QWebEngineQuotaRequest</class>
     <class>QWebEngineRegisterProtocolHandlerRequest</class>
     <class>QWebEngineScript</class>
     <class>QWebEngineScriptCollection</class>
@@ -51,9 +51,12 @@
     <class>QWebEngineUrlScheme</class>
     <class>QWebEngineUrlSchemeHandler</class>
 
-    <!-- Qt WebEngineQuick Module -->
+    <!-- Qt WebEngine Quick Module -->
     <class>QQuickWebEngineProfile</class>
-
+	
+    <!-- Qt WebEngine Widgets Module -->
+    <class>QWebEngineView</class>
+	
     <!-- Namespaces -->
     <class>QtWebEngineQuick</class>
   </classList>

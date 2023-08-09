@@ -65,20 +65,16 @@
   </functions>
   <classList>
     <!-- Qt 3D Render Module -->
-    <class>Qt3DRender::QAbstractFunctor</class>
     <class>Qt3DRender::QAbstractLight</class>
     <class>Qt3DRender::QAbstractRayCaster</class>
     <class>Qt3DRender::QAbstractTexture</class>
     <class>Qt3DRender::QAbstractTextureImage</class>
     <class>Qt3DRender::QAlphaCoverage</class>
     <class>Qt3DRender::QAlphaTest</class>
-    <class>Qt3DRender::QAttribute</class>
     <class>Qt3DRender::QBlendEquation</class>
     <class>Qt3DRender::QBlendEquationArguments</class>
     <class>Qt3DRender::QBlitFramebuffer</class>
-    <class>Qt3DRender::QBuffer</class>
     <class>Qt3DRender::QBufferCapture</class>
-    <class>Qt3DRender::QBufferDataGenerator</class>
     <class>Qt3DRender::QCamera</class>
     <class>Qt3DRender::QCameraLens</class>
     <class>Qt3DRender::QCameraSelector</class>
@@ -87,6 +83,7 @@
     <class>Qt3DRender::QColorMask</class>
     <class>Qt3DRender::QComputeCommand</class>
     <class>Qt3DRender::QCullFace</class>
+	<class>Qt3DRender::QDebugOverlay</class>
     <class>Qt3DRender::QDepthRange</class>
     <class>Qt3DRender::QDepthTest</class>
     <class>Qt3DRender::QDirectionalLight</class>
@@ -96,10 +93,8 @@
     <class>Qt3DRender::QEnvironmentLight</class>
     <class>Qt3DRender::QFilterKey</class>
     <class>Qt3DRender::QFrameGraphNode</class>
-    <class>Qt3DRender::QFrameGraphNodeCreatedChangeBase</class>
     <class>Qt3DRender::QFrontFace</class>
     <class>Qt3DRender::QFrustumCulling</class>
-    <class>Qt3DRender::QGeometry</class>
     <class>Qt3DRender::QGeometryRenderer</class>
     <class>Qt3DRender::QGraphicsApiFilter</class>
     <class>Qt3DRender::QLayer</class>
@@ -122,6 +117,7 @@
     <class>Qt3DRender::QPickLineEvent</class>
     <class>Qt3DRender::QPickPointEvent</class>
     <class>Qt3DRender::QPickTriangleEvent</class>
+	<class>Qt3DRender::QPickingProxy</class>
     <class>Qt3DRender::QPickingSettings</class>
     <class>Qt3DRender::QPointLight</class>
     <class>Qt3DRender::QPointSize</class>
@@ -131,9 +127,11 @@
     <class>Qt3DRender::QRayCaster</class>
     <class>Qt3DRender::QRayCasterHit</class>
     <class>Qt3DRender::QRenderAspect</class>
+	<class>Qt3DRender::QRenderCapabilities</class>
     <class>Qt3DRender::QRenderCapture</class>
     <class>Qt3DRender::QRenderCaptureReply</class>
     <class>Qt3DRender::QRenderPass</class>
+	<class>Qt3DRender::QRenderPassFilter</class>
     <class>Qt3DRender::QRenderSettings</class>
     <class>Qt3DRender::QRenderState</class>
     <class>Qt3DRender::QRenderStateSet</class>
@@ -185,5 +183,6 @@
 
     <!-- namespaces -->
     <class>Qt3DRender</class>
+	<class>Qt3DRender::Render</class>
   </classList>
 </config>
