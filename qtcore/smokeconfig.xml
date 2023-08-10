@@ -122,11 +122,11 @@
     <class>QAtomicInteger</class>
     <class>QAtomicPointer</class>
     <class>QBEInteger</class>
-	<class>QBaseIterator</class>
+    <class>QBaseIterator</class>
     <class>QBasicTimer</class>
     <class>QBindable</class>
     <class>QBitArray</class>
-	<class>QBluetoothPermission</class>
+    <class>QBluetoothPermission</class>
     <class>QBuffer</class>
     <class>QByteArray</class>
     <class>QByteArray::FromBase64Result</class>
@@ -135,9 +135,9 @@
     <class>QByteArrayView</class>
     <class>QCache</class>
     <class>QCalendar</class>
-	<class>QCalendar::SystemId</class>
-	<class>QCalendarPermission</class>
-	<class>QCameraPermission</class>
+    <class>QCalendar::SystemId</class>
+    <class>QCalendarPermission</class>
+    <class>QCameraPermission</class>
     <class>QCborArray</class>
     <class>QCborError</class>
     <class>QCborMap</class>
@@ -156,7 +156,7 @@
     <class>QCommandLineParser</class>
     <class>QConcatenateTablesProxyModel</class>
     <class>QConstIterator</class>
-	<class>QContactsPermission</class>
+    <class>QContactsPermission</class>
     <class>QContiguousCache</class>
     <class>QCoreApplication</class>
     <!-- <class>QCryptographicHash</class> -->
@@ -195,9 +195,9 @@
     <class>QGregorianCalendar</class>
     <class>QHash</class>
     <class>QHashIterator</class>
-	<class>QHashSeed</class>
+    <class>QHashSeed</class>
     <class>QIODevice</class>
-	<class>QIODeviceBase</class>
+    <class>QIODeviceBase</class>
     <class>QIdentityProxyModel</class>
     <class>QItemSelection</class>
     <class>QItemSelectionModel</class>
@@ -205,8 +205,8 @@
     <class>QIterable</class>
     <class>QIterator</class>
     <class>QJalaliCalendar</class>
-	<class>QJniEnvironment</class>
-	<class>QJniObject</class>
+    <class>QJniEnvironment</class>
+    <class>QJniObject</class>
     <class>QJsonArray</class>
     <class>QJsonDocument</class>
     <class>QJsonObject</class>
@@ -215,7 +215,7 @@
     <class>QJulianCalendar</class>
     <class>QKeyCombination</class>
     <class>QKeyValueIterator</class>
-	<class>QLEInteger</class>
+    <class>QLEInteger</class>
     <class>QLatin1Char</class>
     <class>QLatin1String</class>
     <class>QLibrary</class>
@@ -225,7 +225,7 @@
     <class>QList</class>
     <class>QListIterator</class>
     <class>QLocale</class>
-	<class>QLocationPermission</class>
+    <class>QLocationPermission</class>
     <class>QLockFile</class>
     <class>QLoggingCategory</class>
     <class>QMap</class>
@@ -243,7 +243,7 @@
     <class>QMetaProperty</class>
     <class>QMetaSequence</class>
     <class>QMetaType</class>
-	<class>QMicrophonePermission</class>
+    <class>QMicrophonePermission</class>
     <class>QMilankovicCalendar</class>
     <class>QMimeData</class>
     <class>QMimeDatabase</class>
@@ -270,7 +270,7 @@
     <class>QParallelAnimationGroup</class>
     <class>QPartialOrdering</class>
     <class>QPauseAnimation</class>
-	<class>QPermission</class>
+    <class>QPermission</class>
     <class>QPersistentModelIndex</class>
     <class>QPluginLoader</class>
     <class>QPoint</class>
@@ -355,7 +355,7 @@
     <class>QTimer</class>
     <class>QTimerEvent</class>
     <class>QTranslator</class>
-	<class>QTransposeProxyModel</class>
+    <class>QTransposeProxyModel</class>
     <class>QTypeRevision</class>
     <!-- <class>QUnhandledException</class> -->
     <class>QUntypedBindable</class>
@@ -384,13 +384,13 @@
     <class>QXmlStreamReader</class>
     <class>QXmlStreamWriter</class>
     <class>QtFuture::WhenAnyResult</class>
-	<class>qfloat16</class>
+    <class>qfloat16</class>
 
     <!-- namespaces -->
     <class>Qt</class>
-	<class>Qt::Literals</class>
-	<class>Qt::Literals::StringLiterals</class>
-	<!--<class>QtFuture</class>-->
-	<class>QtLiterals</class>
+    <class>Qt::Literals</class>
+    <class>Qt::Literals::StringLiterals</class>
+    <!--<class>QtFuture</class>-->
+    <class>QtLiterals</class>
   </classList>
 </config>

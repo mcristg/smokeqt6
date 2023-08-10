@@ -92,7 +92,7 @@
     <class>QOpenGLFunctions_4_5_Core</class>
     <class>QOpenGLFunctions_ES2</class>
     <class>QOpenGLPaintDevice</class>
-	<class>QOpenGLPixelTransferOptions</class>
+    <class>QOpenGLPixelTransferOptions</class>
     <class>QOpenGLShader</class>
     <class>QOpenGLShaderProgram</class>
     <class>QOpenGLTextureBlitter</class>

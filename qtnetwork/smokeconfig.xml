@@ -69,7 +69,7 @@
     <class>QHostInfo</class>
     <class>QHstsPolicy</class>
     <class>QHttp1Configuration</class>
-	<class>QHttp2Configuration</class>
+    <class>QHttp2Configuration</class>
     <class>QHttpMultiPart</class>
     <class>QHttpPart</class>
     <class>QLocalServer</class>
@@ -81,7 +81,7 @@
     <class>QNetworkCookieJar</class>
     <class>QNetworkDatagram</class>
     <class>QNetworkDiskCache</class>
-	<class>QNetworkInformation</class>
+    <class>QNetworkInformation</class>
     <class>QNetworkInterface</class>
     <class>QNetworkProxy</class>
     <class>QNetworkProxyFactory</class>
@@ -101,7 +101,7 @@
     <class>QSslKey</class>
     <class>QSslPreSharedKeyAuthenticator</class>
     <class>QSslServer</class>
-	<class>QSslSocket</class>
+    <class>QSslSocket</class>
     <class>QTcpServer</class>
     <class>QTcpSocket</class>
     <class>QUdpSocket</class>

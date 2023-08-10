@@ -72,11 +72,11 @@
     <class>QAccessibleEvent</class>
     <class>QAccessibleInterface</class>
     <class>QAccessibleObject</class>
-	<class>QAccessiblePlugin</class>
-	<class>QAccessibleSelectionInterface</class>
+    <class>QAccessiblePlugin</class>
+    <class>QAccessibleSelectionInterface</class>
     <class>QAccessibleStateChangeEvent</class>
     <class>QAccessibleTableCellInterface</class>
-	<class>QAccessibleTableInterface</class>
+    <class>QAccessibleTableInterface</class>
     <class>QAccessibleTableModelChangeEvent</class>
     <class>QAccessibleTextCursorEvent</class>
     <class>QAccessibleTextInsertEvent</class>
@@ -152,11 +152,11 @@
     <class>QMoveEvent</class>
     <class>QMovie</class>
     <class>QNativeGestureEvent</class>
-	<class>QNativeInterface::QCocoaGLContext</class>
-	<class>QNativeInterface::QGLXContext</class>
-	<class>QNativeInterface::QWGLContext</class>
-	<class>QNativeInterface::QWaylandApplication</class>
-	<class>QNativeInterface::QX11Application</class>
+    <class>QNativeInterface::QCocoaGLContext</class>
+    <class>QNativeInterface::QGLXContext</class>
+    <class>QNativeInterface::QWGLContext</class>
+    <class>QNativeInterface::QWaylandApplication</class>
+    <class>QNativeInterface::QX11Application</class>
     <class>QOffscreenSurface</class>
     <class>QOpenGLContext</class>
     <class>QOpenGLContextGroup</class>
@@ -164,8 +164,8 @@
     <class>QOpenGLFunctions</class>
     <class>QOpenGLTexture</class>
     <class>QPageLayout</class>
-	<class>QPageRanges</class>
-	<class>QPageRanges::Range</class>
+    <class>QPageRanges</class>
+    <class>QPageRanges::Range</class>
     <class>QPageSize</class>
     <class>QPagedPaintDevice</class>
     <class>QPaintDevice</class>
@@ -198,10 +198,10 @@
     <class>QRasterWindow</class>
     <class>QRawFont</class>
     <class>QRegion</class>
-	<class>QRegularExpressionValidator</class>
+    <class>QRegularExpressionValidator</class>
     <class>QResizeEvent</class>
     <class>QRgba64</class>
-	<class>QRgbaFloat</class>
+    <class>QRgbaFloat</class>
     <class>QScreen</class>
     <class>QScrollEvent</class>
     <class>QScrollPrepareEvent</class>
@@ -256,24 +256,24 @@
     <class>QUndoCommand</class>
     <class>QUndoGroup</class>
     <class>QUndoStack</class>
-	<class>QUtiMimeConverter</class>
+    <class>QUtiMimeConverter</class>
     <class>QValidator</class>
     <class>QVector2D</class>
     <class>QVector3D</class>
     <class>QVector4D</class>
     <class>QVulkanDeviceFunctions</class>
-	<class>QVulkanExtension</class>
+    <class>QVulkanExtension</class>
     <class>QVulkanFunctions</class>
-	<class>QVulkanInfoVector</class>
+    <class>QVulkanInfoVector</class>
     <class>QVulkanInstance</class>
-	<class>QVulkanLayer</class>
+    <class>QVulkanLayer</class>
     <class>QVulkanWindow</class>
     <class>QVulkanWindowRenderer</class>
     <class>QWhatsThisClickedEvent</class>
     <class>QWheelEvent</class>
     <class>QWindow</class>
     <class>QWindowStateChangeEvent</class>
-	<class>QWindowsMimeConverter</class>
+    <class>QWindowsMimeConverter</class>
 
     <!-- namespaces -->
     <class>QColorConstants</class>

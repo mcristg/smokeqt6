@@ -63,13 +63,13 @@
     <!-- Qt 3D Extras Module -->
     <class>Qt3DExtras::QAbstractCameraController</class>
     <class>Qt3DExtras::QConeGeometry</class>
-	<class>Qt3DExtras::QConeGeometryView</class>
+    <class>Qt3DExtras::QConeGeometryView</class>
     <class>Qt3DExtras::QConeMesh</class>
     <class>Qt3DExtras::QCuboidGeometry</class>
-	<class>Qt3DExtras::QCuboidGeometryView</class>
+    <class>Qt3DExtras::QCuboidGeometryView</class>
     <class>Qt3DExtras::QCuboidMesh</class>
     <class>Qt3DExtras::QCylinderGeometry</class>
-	<class>Qt3DExtras::QCylinderGeometryView</class>
+    <class>Qt3DExtras::QCylinderGeometryView</class>
     <class>Qt3DExtras::QCylinderMesh</class>
     <class>Qt3DExtras::QDiffuseSpecularMaterial</class>
     <class>Qt3DExtras::QExtrudedTextGeometry</class>
@@ -82,16 +82,16 @@
     <class>Qt3DExtras::QOrbitCameraController</class>
     <class>Qt3DExtras::QPerVertexColorMaterial</class>
     <class>Qt3DExtras::QPlaneGeometry</class>
-	<class>Qt3DExtras::QPlaneGeometryView</class>
+    <class>Qt3DExtras::QPlaneGeometryView</class>
     <class>Qt3DExtras::QPlaneMesh</class>
     <class>Qt3DExtras::QSkyboxEntity</class>
     <class>Qt3DExtras::QSphereGeometry</class>
-	<class>Qt3DExtras::QSphereGeometryView</class>
+    <class>Qt3DExtras::QSphereGeometryView</class>
     <class>Qt3DExtras::QSphereMesh</class>
     <class>Qt3DExtras::QText2DEntity</class>
     <class>Qt3DExtras::QTextureMaterial</class>
     <class>Qt3DExtras::QTorusGeometry</class>
-	<class>Qt3DExtras::QTorusGeometryView</class>
+    <class>Qt3DExtras::QTorusGeometryView</class>
     <class>Qt3DExtras::QTorusMesh</class>
 
     <!-- namespaces -->

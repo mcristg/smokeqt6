@@ -65,6 +65,6 @@
 
     <!-- namespaces -->
     <class>Qt3DLogic</class>
-	<class>Qt3DLogic::Logic</class>
+    <class>Qt3DLogic::Logic</class>
   </classList>
 </config>

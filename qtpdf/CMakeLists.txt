@@ -15,7 +15,7 @@ target_link_libraries(smokeqt6pdf
     smokeqt6core 
     smokeqt6gui
     smokeqt6webengine
-	Qt6::Pdf
+    Qt6::Pdf
 )
 
 set_target_properties(smokeqt6pdf

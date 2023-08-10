@@ -66,9 +66,9 @@
   <classList>
     <class>QAmbientSound</class>
     <class>QAudioEngine</class>
-	<class>QAudioListener</class>
-	<class>QAudioRoom</class>
-	<class>QSpatialSound</class>
+    <class>QAudioListener</class>
+    <class>QAudioRoom</class>
+    <class>QSpatialSound</class>
   </classList>
 </config>
 

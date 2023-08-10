@@ -17,8 +17,8 @@ target_link_libraries(smokeqt6webengine
     smokeqt6quick
     smokeqt6network
     Qt6::WebEngineCore
-	Qt6::WebEngineWidgets
-	Qt6::WebEngineQuick
+    Qt6::WebEngineWidgets
+    Qt6::WebEngineQuick
 )
 
 set_target_properties(smokeqt6webengine

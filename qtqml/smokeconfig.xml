@@ -68,12 +68,12 @@
     <class>QQmlEngineExtensionPlugin</class>
     <class>QQmlError</class>
     <class>QQmlExpression</class>
-	<class>QQmlExtensionPlugin</class>
+    <class>QQmlExtensionPlugin</class>
     <class>QQmlFileSelector</class>
     <class>QQmlImageProviderBase</class>
     <class>QQmlIncubationController</class>
     <class>QQmlIncubator</class>
-	<class>QQmlInfo</class>
+    <class>QQmlInfo</class>
     <class>QQmlListProperty</class>
     <class>QQmlListReference</class>
     <class>QQmlNetworkAccessManagerFactory</class>

@@ -47,10 +47,10 @@
 
     <signature>.*operator\|\(.*</signature>
     <signature>.*operator.*</signature>
-	
-	<!-- error lnk2019 unresolved external symbol __declspec(dllimport) -->
-	<signature>.*QGeometryView::geometryFactory.*</signature>
-	<signature>.*QGeometryView::setGeometryFactory.*</signature>
+
+    <!-- error lnk2019 unresolved external symbol __declspec(dllimport) -->
+    <signature>.*QGeometryView::geometryFactory.*</signature>
+    <signature>.*QGeometryView::setGeometryFactory.*</signature>
 
     <!-- Ignore Mac types -->
     <signature>.*operator&lt;&lt;\(.*const objc_object\*\)$</signature>
@@ -67,12 +67,12 @@
   <classList>
     <!-- Qt 3D Core Module -->
     <class>Qt3DCore::QAbstractAspect</class>
-	<class>Qt3DCore::QAbstractFunctor</class>
+    <class>Qt3DCore::QAbstractFunctor</class>
     <class>Qt3DCore::QAbstractSkeleton</class>
     <class>Qt3DCore::QArmature</class>
     <class>Qt3DCore::QAspectEngine</class>
     <class>Qt3DCore::QAspectJob</class>
-	<class>Qt3DCore::QAttribute</class>
+    <class>Qt3DCore::QAttribute</class>
     <class>Qt3DCore::QBackendNode</class>
     <!--<class>Qt3DCore::QBackendNodeMapper</class>-->
     <class>Qt3DCore::QBoundingVolume</class>
@@ -80,12 +80,12 @@
     <class>Qt3DCore::QComponent</class>
     <class>Qt3DCore::QCoreSettings</class>
     <class>Qt3DCore::QEntity</class>
-	<class>Qt3DCore::QGeometry</class>
-	<class>Qt3DCore::QGeometryView</class>
+    <class>Qt3DCore::QGeometry</class>
+    <class>Qt3DCore::QGeometryView</class>
     <class>Qt3DCore::QJoint</class>
     <class>Qt3DCore::QNode</class>
     <class>Qt3DCore::QNodeId</class>
-	<class>Qt3DCore::QSkeleton</class>
+    <class>Qt3DCore::QSkeleton</class>
     <class>Qt3DCore::QSkeletonLoader</class>
     <class>Qt3DCore::QTransform</class>
     <class>Qt3DCore::Quick::QQmlAspectEngine</class>

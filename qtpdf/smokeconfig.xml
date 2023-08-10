@@ -16,18 +16,18 @@
     <typeName>QString</typeName>
   </voidpTypes>
   <exclude>
-	<signature>.*QPdfSelection::qt_check_for_QGADGET_macro.*</signature>
-	<signature>.*QPdfLink::qt_check_for_QGADGET_macro.*</signature>
+    <signature>.*QPdfSelection::qt_check_for_QGADGET_macro.*</signature>
+    <signature>.*QPdfLink::qt_check_for_QGADGET_macro.*</signature>
   </exclude>
   <classList>
     <class>QPdfBookmarkModel</class>
-	<class>QPdfDocument</class>
-	<class>QPdfDocumentRenderOptions</class>
-	<class>QPdfLink</class>
-	<class>QPdfPageNavigator</class>
-	<class>QPdfPageRenderer</class>
-	<class>QPdfSearchModel</class>
-	<class>QPdfSelection</class>
-	<class>QPdfView</class>
+    <class>QPdfDocument</class>
+    <class>QPdfDocumentRenderOptions</class>
+    <class>QPdfLink</class>
+    <class>QPdfPageNavigator</class>
+    <class>QPdfPageRenderer</class>
+    <class>QPdfSearchModel</class>
+    <class>QPdfSelection</class>
+    <class>QPdfView</class>
   </classList>
 </config>

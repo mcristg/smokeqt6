@@ -220,7 +220,6 @@ macro_optional_add_bindings(Qt6Svg_FOUND "QtSvg" qtsvg)
 macro_optional_add_bindings(Qt6UiTools_FOUND "QtUiTools" qtuitools)
 macro_optional_add_bindings(Qt6WebChannel_FOUND "QtWebChannel" qtwebchannel)
 macro_optional_add_bindings(Qt6WebEngineCore_FOUND "QtWebEngine" qtwebengine)
-#macro_optional_add_bindings(Qt6WebEngineWidgets_FOUND "QtWebEngineWidgets" qtwebenginewidgets)
 macro_optional_add_bindings(Qt6Widgets_FOUND "QtWidgets" qtwidgets)
 macro_optional_add_bindings(Qt6Xml_FOUND "QtXml" qtxml)
 #

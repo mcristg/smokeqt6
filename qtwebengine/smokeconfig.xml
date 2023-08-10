@@ -28,7 +28,7 @@
     <class>QWebEngineCookieStore</class>
     <class>QWebEngineCookieStore::FilterRequest</class>
     <class>QWebEngineDownloadRequest</class>
-	<class>QWebEngineFileSystemAccessRequest</class>
+    <class>QWebEngineFileSystemAccessRequest</class>
     <class>QWebEngineFindTextResult</class>
     <class>QWebEngineFullScreenRequest</class>
     <class>QWebEngineHistory</class>

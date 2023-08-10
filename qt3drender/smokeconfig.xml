@@ -83,7 +83,7 @@
     <class>Qt3DRender::QColorMask</class>
     <class>Qt3DRender::QComputeCommand</class>
     <class>Qt3DRender::QCullFace</class>
-	<class>Qt3DRender::QDebugOverlay</class>
+    <class>Qt3DRender::QDebugOverlay</class>
     <class>Qt3DRender::QDepthRange</class>
     <class>Qt3DRender::QDepthTest</class>
     <class>Qt3DRender::QDirectionalLight</class>
@@ -117,7 +117,7 @@
     <class>Qt3DRender::QPickLineEvent</class>
     <class>Qt3DRender::QPickPointEvent</class>
     <class>Qt3DRender::QPickTriangleEvent</class>
-	<class>Qt3DRender::QPickingProxy</class>
+    <class>Qt3DRender::QPickingProxy</class>
     <class>Qt3DRender::QPickingSettings</class>
     <class>Qt3DRender::QPointLight</class>
     <class>Qt3DRender::QPointSize</class>
@@ -127,11 +127,11 @@
     <class>Qt3DRender::QRayCaster</class>
     <class>Qt3DRender::QRayCasterHit</class>
     <class>Qt3DRender::QRenderAspect</class>
-	<class>Qt3DRender::QRenderCapabilities</class>
+    <class>Qt3DRender::QRenderCapabilities</class>
     <class>Qt3DRender::QRenderCapture</class>
     <class>Qt3DRender::QRenderCaptureReply</class>
     <class>Qt3DRender::QRenderPass</class>
-	<class>Qt3DRender::QRenderPassFilter</class>
+    <class>Qt3DRender::QRenderPassFilter</class>
     <class>Qt3DRender::QRenderSettings</class>
     <class>Qt3DRender::QRenderState</class>
     <class>Qt3DRender::QRenderStateSet</class>
@@ -183,6 +183,6 @@
 
     <!-- namespaces -->
     <class>Qt3DRender</class>
-	<class>Qt3DRender::Render</class>
+    <class>Qt3DRender::Render</class>
   </classList>
 </config>
