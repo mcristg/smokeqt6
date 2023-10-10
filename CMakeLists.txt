@@ -8,9 +8,13 @@ set(CMAKE_CXX_EXTENSIONS ON)
 function(get_smokegen_args RESULT_NAME moduleName)
   set(clangOptions "-clangOptions")
   if(NOT WIN32)
-    list(APPEND clangOptions  "-std=c++17")
+    list(APPEND clangOptions "-fPIC")
+    if (SMOKEGEN_OPTION)
+      string(REPLACE " " ";" SMOKEGEN_OPTION ${SMOKEGEN_OPTION})
+      list(APPEND clangOptions ${SMOKEGEN_OPTION})
+    endif()
   endif()
-
+  
   if(MSVC AND MSVC_VERSION GREATER 1600)
     # The features that clang reports and the features that Qt will detect at
     # compile time must match.  MSVC2015 supports c++14, but does not support

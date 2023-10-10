@@ -5,6 +5,13 @@
     <module>qt6gui</module>
   </parentModules>
   <parts>1</parts>
+  <moduleNamespaces>
+    <namespace>Qt3DInput</namespace>
+    <namespace>Qt</namespace>
+  </moduleNamespaces>
+  <excludeIncFiles>
+    <excludeIncFile>qsharedpointer_impl.h</excludeIncFile>
+  </excludeIncFiles>
   <scalarTypes>
     <!-- QString is a class, but represented as a scalar (#) in munged names -->
     <typeName>QString</typeName>
@@ -92,4 +99,18 @@
     <!-- namespaces -->
     <class>Qt3DInput</class>
   </classList>
+  <doubleConditions>
+    <doubleCondition>qt_getEnumName|qt_getEnumMetaObject</doubleCondition>
+  </doubleConditions>
+  <tripleConditions>
+    <tripleCondition>Qt3DInput|qt_getEnumName|qt_getEnumMetaObject</tripleCondition>
+  </tripleConditions>
+  <OverridesFinalFunctions>
+    <name>axisCount</name>
+    <name>buttonCount</name>
+    <name>axisNames</name>
+    <name>buttonNames</name>
+    <name>axisIdentifier</name>
+    <name>buttonIdentifier</name>
+  </OverridesFinalFunctions>
 </config>

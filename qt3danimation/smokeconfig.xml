@@ -5,6 +5,9 @@
     <module>qt6gui</module>
   </parentModules>
   <parts>1</parts>
+  <moduleNamespaces>
+    <namespace>Qt3DAnimation</namespace>
+  </moduleNamespaces>
   <scalarTypes>
     <!-- QString is a class, but represented as a scalar (#) in munged names -->
     <typeName>QString</typeName>
@@ -87,4 +90,7 @@
     <!-- namespaces -->
     <class>Qt3DAnimation</class>
   </classList>
+  <doubleConditions>
+    <doubleCondition>qt_getEnumName|qt_getEnumMetaObject</doubleCondition>
+  </doubleConditions>
 </config>

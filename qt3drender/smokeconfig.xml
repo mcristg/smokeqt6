@@ -5,6 +5,12 @@
     <module>qt6gui</module>
   </parentModules>
   <parts>1</parts>
+  <moduleNamespaces>
+    <namespace>Qt3DRender</namespace>
+  </moduleNamespaces>
+  <excludeIncFiles>
+    <excludeIncFile>qsharedpointer_impl.h</excludeIncFile>
+  </excludeIncFiles>
   <scalarTypes>
     <!-- QString is a class, but represented as a scalar (#) in munged names -->
     <typeName>QString</typeName>
@@ -185,4 +191,7 @@
     <class>Qt3DRender</class>
     <class>Qt3DRender::Render</class>
   </classList>
+  <doubleConditions>
+    <doubleCondition>qt_getEnumName|qt_getEnumMetaObject</doubleCondition>
+  </doubleConditions>
 </config>

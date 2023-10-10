@@ -5,6 +5,12 @@
     <module>qt6gui</module>
   </parentModules>
   <parts>1</parts>
+  <moduleNamespaces>
+    <namespace>Qt3DCore</namespace>
+  </moduleNamespaces>
+  <excludeIncFiles>
+    <excludeIncFile>qsharedpointer_impl.h</excludeIncFile>
+  </excludeIncFiles>
   <scalarTypes>
     <!-- QString is a class, but represented as a scalar (#) in munged names -->
     <typeName>QString</typeName>
@@ -94,4 +100,7 @@
     <class>Qt3DCore</class>
     <class>Qt3DCore::Quick</class>
   </classList>
+  <doubleConditions>
+    <doubleCondition>qt_getEnumName|qt_getEnumMetaObject</doubleCondition>
+  </doubleConditions>
 </config>

@@ -5,6 +5,14 @@
     <module>qt6gui</module>
   </parentModules>
   <parts>1</parts>
+  <moduleNamespaces>
+    <namespace>Qt3DExtras</namespace>
+    <namespace>Qt3DCore</namespace>
+    <namespace>Qt3DRender</namespace>
+  </moduleNamespaces>
+  <excludeIncFiles>
+    <excludeIncFile>qsharedpointer_impl.h</excludeIncFile>
+  </excludeIncFiles>
   <scalarTypes>
     <!-- QString is a class, but represented as a scalar (#) in munged names -->
     <typeName>QString</typeName>
